@@ -4,7 +4,10 @@ import './style/globals.css'
 export default function Home() {
   return (
       <ProtectedRoute>
-        <div className={`bg-black text-white h-screen`}>MAIN PAGE</div>
+        <div className={`bg-milk text-black h-screen`}>
+            <p className={`text-purple`}>qwertyuiop</p>
+            <p className={`text-purplelight`}>qwertyuiop</p>
+        </div>
       </ProtectedRoute>
   );
 }
