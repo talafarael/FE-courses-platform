@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         milk: "#f1eef4",
+        pinklight:"#FEF7FF",
         purplelight: "#DFD5EC",
         purple: "#65558F",
       },
