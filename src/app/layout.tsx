@@ -1,18 +1,22 @@
-import React from 'react';
-import { AuthProvider } from '@/src/shared/lib/providers/auth-provider';
-import './style/globals.css';
+import React from "react";
+import { AuthProvider } from "@/src/shared/lib/providers/auth-provider";
+import "./style/globals.css";
 export const metadata = {
-    title: 'next',
+	title: "next",
 };
+import { loadEnvConfig } from "@next/env";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-    return (
-        <html>
-        <body>
-        <AuthProvider>
-            {children}
-        </AuthProvider>
-        </body>
-        </html>
-    );
+export default function RootLayout({
+	children,
+}: { children: React.ReactNode }) {
+	const projectDir = process.cwd();
+	loadEnvConfig(projectDir);
+
+	return (
+		<html>
+			<body>
+				<AuthProvider>{children}</AuthProvider>
+			</body>
+		</html>
+	);
 }
