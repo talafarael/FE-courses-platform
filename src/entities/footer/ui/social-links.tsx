@@ -3,6 +3,7 @@ import telegram from "@/public/icons/telegram.svg"
 import email from "@/public/icons/email.svg"
 import phone from "@/public/icons/phone.svg"
 import Link from "next/link";
+import Image from "next/image";
 
 const icons = [
     {
@@ -32,7 +33,7 @@ export const SocialLinks = () => {
         <div className={`flex flex-row justify-between w-[400px] p-2`}>
             {icons.map(({ name, img, href }) => (
                 <Link key={name} href={href}>
-                    <img className="w-[40px] h-[40px] md:w-[48px] md:h-[48px]" src={img} alt={name}/>
+                    <Image  className="w-[40px] h-[40px] md:w-[48px] md:h-[48px]" src={img} alt={name}/>
                 </Link>
             ))}
         </div>

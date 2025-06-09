@@ -12,7 +12,7 @@ export const RegisterInput = () => {
     return (
         <div className="flex flex-col gap-2">
             {fields.map(({ placeholder, type = "text" }) => (
-                <Input placeholder={placeholder} type={type} />
+                <Input key={placeholder} placeholder={placeholder} type={type} />
             ))}
         </div>
     );
