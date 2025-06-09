@@ -1,5 +1,5 @@
-import {SocialLinks} from "@/src/entities/footer/ui/social-links";
-import {BrandInfo} from "@/src/entities/footer/ui/brand-info";
+import {SocialLinks} from "@/src/entities/footer/ui/socialLinks/social-links";
+import {BrandInfo} from "@/src/entities/footer/ui/brandInfo/brand-info";
 
 export const Footer = () => {
     return (

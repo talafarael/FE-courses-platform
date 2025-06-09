@@ -10,7 +10,6 @@ export default function Home() {
             <p className={`text-purple`}>qwertyuiop</p>
             <p className={`text-purplelight`}>qwertyuiop</p>
         </div>
-          <Footer/>
       </ProtectedRoute>
   );
 }
