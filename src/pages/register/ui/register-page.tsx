@@ -10,7 +10,7 @@ const RegisterPage = () => {
                 <div className={`flex w-full justify-around`}>
                     <div className={`flex flex-col justify-around`}>
                         <div>
-                            <Image src={log.src} alt="logo"/>
+                            <Image width={170} height={100} src={log.src} alt="logo"/>
                         </div>
                         <RegisterText/>
                     </div>

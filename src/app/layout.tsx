@@ -1,7 +1,6 @@
 import React from 'react';
 import { AuthProvider } from '@/src/shared/lib/providers/auth-provider';
 import './style/globals.css';
-import {Footer} from "@/src/widgets/footer"
 export const metadata = {
     title: 'next',
 };
@@ -12,7 +11,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <body>
         <AuthProvider>
             {children}
-            <Footer/>
         </AuthProvider>
         </body>
         </html>

@@ -1,4 +1,4 @@
-export const brandInfo =[
+export const navigation =[
     {
         title: "Головна",
         link: "/"
@@ -10,5 +10,5 @@ export const brandInfo =[
     {
         title: "Про спеціальність",
         link: "/specialty"
-    },
+    }
 ]
