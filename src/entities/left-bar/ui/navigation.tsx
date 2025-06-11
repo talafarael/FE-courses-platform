@@ -1,35 +1,16 @@
 "use client";
-
-import Image from "next/image";
-import iconsLight from "@/public/menu/icon-light.svg";
-import iconsDark from "@/public/menu/icon-dark.svg";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigation } from "@/src/shared/lib/constants/navigation";
+import { navigationList } from "@/src/shared/lib/constants/navigation-list";
+import {ItemList} from "@/src/entities/left-bar/ui/item-list";
 
 export const Navigation = () => {
     const pathname = usePathname();
 
     return (
-        navigation.map(({ title, link }) => {
+        navigationList.map(({ title, link }) => {
             const isActive = pathname === link;
-
             return (
-                <Link className="flex flex-col items-center gap-2" key={title} href={link}>
-                    <div   className={`${isActive ? "bg-purple" : "bg-purplelight"} rounded-2xl w-[60px] h-[30px] flex items-center justify-center`}>
-                        <Image
-
-                            width={20}
-                            height={20}
-                            src={isActive ? iconsLight.src : iconsDark.src}
-                            alt="icon"
-                        />
-                    </div>
-
-                    <span className="text-[14px] flex items-center justify-center text-center">
-                        {title}
-                    </span>
-                </Link>
+                <ItemList key={title} title={title} link={link} isActive={isActive}/>
             );
         })
     );
