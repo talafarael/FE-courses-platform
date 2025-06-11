@@ -1,5 +1,5 @@
 export enum ROUTES{
-    register = "/register",
-    login = "/login",
-    home = "/",
+    register = "/auth/register",
+    login = "/auth/login",
+    home = "/main",
 }
