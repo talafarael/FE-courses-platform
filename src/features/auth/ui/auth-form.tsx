@@ -5,41 +5,37 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema, RegisterSchema } from "../model/auth-schema";
 import { InputAuth } from "./auth-input";
-import { RegisterUserApi } from "../api/auth";
-import { RegisterFormData } from "../model/auth";
+import { useAuth } from "../hook/auth";
 
 export type FormAuthProps<T extends "login" | "register"> = {
-	state: T;
+  state: T;
 };
 export const FormAuth = <T extends "login" | "register">({
-	state,
+  state,
 }: FormAuthProps<T>) => {
-	const schema = state === "login" ? LoginSchema : RegisterSchema;
-	type AuthSchemaType = z.infer<typeof schema>;
-	const form = useForm<AuthSchemaType>({
-		resolver: zodResolver(schema),
-	});
-	const onSubmit = async (data: AuthSchemaType) => {
-		console.log(data);
-		if (state === "login") {
-		} else {
-			await RegisterUserApi(data as RegisterFormData);
-		}
-	};
+  const { authMutation, error } = useAuth();
+  const schema = state === "login" ? LoginSchema : RegisterSchema;
+  type AuthSchemaType = z.infer<typeof schema>;
+  const form = useForm<AuthSchemaType>({
+    resolver: zodResolver(schema),
+  });
+  const onSubmit = async (data: AuthSchemaType) => {
+    await authMutation(data);
+  };
 
-	return (
-		<FormProvider {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)}>
-				<InputAuth<T, AuthSchemaType>
-					errors={form.formState.errors as FieldErrors}
-					register={form.register}
-					state={state}
-				/>
-
-				<div className="flex justify-end p-2">
-					<Button type="submit" label="готово!" />
-				</div>
-			</form>
-		</FormProvider>
-	);
+  return (
+    <FormProvider {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
+        <InputAuth<T, AuthSchemaType>
+          errors={form.formState.errors as FieldErrors}
+          register={form.register}
+          state={state}
+        />
+        <h1>{error}</h1>
+        <div className="flex justify-end p-2">
+          <Button type="submit" label="готово!" />
+        </div>
+      </form>
+    </FormProvider>
+  );
 };
