@@ -30,9 +30,9 @@ export const InputAuth = <
   const authData = state === "login" ? loginData : registerData;
   console.log(authData);
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex max-w-[494px] w-[90%] items-end flex-col gap-2 max-lg:max-w-[350px]">
       {authData?.map((elem) => {
-        const error: FieldError | undefined =
+        const error =
           state === "login"
             ? (errors as FieldErrors)[elem.name as keyof LoginSchemaType]
             : (errors as FieldErrors)[elem.name as keyof RegisterSchemaType];
@@ -43,7 +43,7 @@ export const InputAuth = <
             placeholder={elem.name}
             name={elem.name as Path<Y>}
             register={register}
-            error={error}
+            error={error as FieldError}
           />
         );
       })}

@@ -2,7 +2,6 @@
 import { useState } from "react";
 import {
   FieldError,
-  FieldErrors,
   FieldValues,
   Path,
   useFormContext,
@@ -34,9 +33,9 @@ export const InputForm = <T extends FieldValues>({
 
   return (
     <>
-      <div className="relative">
+      <div className="relative  max-w-[494px] w-[100%] ">
         <input
-          className="h-14 w-[500px] border-2 border-purple rounded px-4 py-2 outline-none focus:border-purple-600 transition-all duration-200"
+          className="h-[50px] max-w-[494px] w-[100%]  border-2 border-purple rounded-[15px] px-4 py-2 outline-none focus:border-purple-600 transition-all duration-200"
           type={type}
           {...register(name, { valueAsNumber })}
           onFocus={() => setIsFocused(true)}
@@ -50,7 +49,11 @@ export const InputForm = <T extends FieldValues>({
         >
           {placeholder}
         </label>
-        {error && <span className="error-message">{error?.message}</span>}
+        {error && (
+          <span className="error-message text-darkPurple ">
+            {error?.message}
+          </span>
+        )}
       </div>
     </>
   );

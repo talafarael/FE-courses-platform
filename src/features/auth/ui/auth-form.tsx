@@ -25,7 +25,10 @@ export const FormAuth = <T extends "login" | "register">({
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)}>
+      <form
+        className="w-[50%] max-lg:w-[100%]  flex flex-col items-end justify-center max-lg:items-center "
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
         <InputAuth<T, AuthSchemaType>
           errors={form.formState.errors as FieldErrors}
           register={form.register}

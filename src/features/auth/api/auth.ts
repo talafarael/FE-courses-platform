@@ -18,7 +18,7 @@ export const RegisterUserMutation = async (
     const res = (await axios.post("auth/register", body)) as AxiosResponse;
     setResponse(res?.data);
   } catch (e) {
-    if (e instanceof AxiosError) {
+    if (e instanceof AxiosError && e.response?.data?.detail) {
       setError(e.response?.data?.detail);
       return;
     } else {
@@ -34,9 +34,10 @@ export const LoginUserMutation = async (
   const axios = createApi();
   try {
     const res = (await axios.post("auth/login", data)) as AxiosResponse;
+    console.log(res);
     setResponse(res?.data);
   } catch (e) {
-    if (e instanceof AxiosError) {
+    if (e instanceof AxiosError && e.response?.data?.detail) {
       setError(e.response?.data?.detail);
     } else {
       setError("Oops! Something went wrong.");
