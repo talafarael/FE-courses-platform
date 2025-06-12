@@ -1,0 +1,25 @@
+"use client"
+import menu from "@/public/menu/menu.svg"
+import Image from "next/image";
+import {Navigation} from "@/src/entities/left-bar/ui/navigation";
+import {useState} from "react";
+
+export const LeftBar = () => {
+
+    const [isOpen, setIsOpen] = useState<boolean>(true);
+
+    return (
+
+            <nav className={`absolute w-[110px] h-[800px] rounded-br-2xl flex flex-col items-center p-2 ${isOpen ? 'bg-purplelight' : 'bg-[#0000000]'}`}>
+                <Image onClick={()=>{setIsOpen(!isOpen)}} className="mt-10" height={48} width={48} src={menu.src} alt="menu"/>
+                {isOpen &&(
+                    <div className="flex flex-col justify-around h-[40%]">
+                        <Navigation/>
+                    </div>
+                )}
+
+            </nav>
+
+
+        )
+}

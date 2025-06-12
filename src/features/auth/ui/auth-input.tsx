@@ -9,7 +9,7 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 import { LoginSchemaType, RegisterSchemaType } from "../type/schema";
-import { loginData, registerData } from "../data/auth";
+import { loginData, registerData } from "../data/auth.data";
 
 export type InputAuthProps<
   T extends "login" | "register",
