@@ -7,7 +7,7 @@ export const Button = ({ label, type }: ButtonProps) => {
   return (
     <button
       type={type}
-      className="bg-purple text-white rounded-3xl px-4 h-[50px]  w-[140px] py-2"
+      className="bg-purple text-white rounded-3xl px-4 h-[40px]  w-[140px] py-2"
     >
       {label}
     </button>
