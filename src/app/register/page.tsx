@@ -1,8 +1,5 @@
-"use client"
-import {RegisterPage} from "@/src/pages/register/ui/register-page";
+import { AuthPage } from "@/src/pages/auth/ui/auth-page";
 
 export default function Register() {
-    return (
-        <RegisterPage/>
-    );
+  return <AuthPage state="register" />;
 }

@@ -9,11 +9,16 @@ module.exports = {
     extend: {
       colors: {
         milk: "#f1eef4",
-        pinklight:"#FEF7FF",
+        pinklight: "#FEF7FF",
         purplelight: "#DFD5EC",
         purple: "#65558F",
+        darkPurple: "#21005D",
+      },
+      screens: {
+        "max-lg": { max: "850px" },
       },
     },
   },
   plugins: [],
-}
+};
+
