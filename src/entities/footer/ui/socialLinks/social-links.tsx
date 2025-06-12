@@ -1,4 +1,4 @@
-import {icons} from "@/src/entities/footer/ui/socialLinks/Icons";
+import {icons} from "@/src/entities/footer/ui/socialLinks/icons";
 import Link from "next/link";
 import Image from "next/image";
 

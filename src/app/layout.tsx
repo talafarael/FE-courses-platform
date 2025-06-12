@@ -1,8 +1,8 @@
 import React from 'react';
 import { AuthProvider } from '@/src/shared/lib/providers/auth-provider';
-import '../style/globals.css';
+import './style/globals.css';
 export const metadata = {
-    title: 'nexxscst',
+    title: 'next',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
