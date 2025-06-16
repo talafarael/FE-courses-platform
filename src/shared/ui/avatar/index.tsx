@@ -1,0 +1,13 @@
+import Image from "next/image";
+import avatar from "@/public/avatar.svg";
+
+export type AvatarProps = {
+    width?: number;
+    height?: number;
+};
+
+export const Avatar = ({width=150, height=150}: AvatarProps ) => {
+    return(
+        <Image width={width} height={height} src={avatar.src} alt="avatar" />
+    )
+}

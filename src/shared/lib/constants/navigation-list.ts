@@ -1,14 +1,14 @@
 export const navigationList =[
     {
         title: "Головна",
-        link: "/"
+        link: "/main"
     },
     {
         title: "Профіль",
-        link: "/profile"
+        link: "/main/profile"
     },
     {
         title: "Про спеціальність",
-        link: "/specialty"
+        link: "/main/specialty"
     }
 ]

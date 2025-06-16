@@ -10,7 +10,9 @@ export const LeftBar = () => {
 
     return (
 
-            <nav className={`absolute w-[110px] h-[800px] rounded-br-2xl flex flex-col items-center p-2 ${isOpen ? 'bg-purplelight' : 'bg-[#0000000]'}`}>
+            <nav   className={`fixed top-0 left-0 w-[110px] h-screen rounded-br-2xl flex flex-col items-center p-2 ку  ${
+                isOpen ? 'bg-purplelight' : 'bg-transparent'
+            }`}>
                 <Image onClick={()=>{setIsOpen(!isOpen)}} className="mt-10" height={48} width={48} src={menu.src} alt="menu"/>
                 {isOpen &&(
                     <div className="flex flex-col justify-around h-[40%]">

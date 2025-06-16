@@ -30,7 +30,7 @@ export const useAuth = () => {
   useEffect(() => {
     if (response) {
       localStorage.setItem("token", response?.message);
-      router.push("/");
+      router.push("/main");
     }
   }, [response, router]);
   return { authMutation, error };

@@ -9,10 +9,12 @@ export default function RootLayout({
   children,
 }: { children: React.ReactNode }) {
   return (
-    <html>
-      <body>
+    <html lang="en"  className="h-full">
+      <body className="h-full">
         <LeftBar />
-        {children}
+        <main className="flex-1 flex items-center justify-center">
+            {children}
+        </main>
         <Footer />
       </body>
     </html>
