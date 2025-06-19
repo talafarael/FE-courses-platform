@@ -16,7 +16,7 @@ export const ItemList = ({title, link, isActive}: ItemListProps)  => {
                 <Image
                     width={20}
                     height={20}
-                    src={isActive ? iconsLight.src : iconsDark.src}
+                    src={isActive ? iconsLight : iconsDark}
                     alt="icon"
                 />
             </div>

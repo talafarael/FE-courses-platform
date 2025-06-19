@@ -11,6 +11,7 @@ export default function RootLayout({
 }: { children: React.ReactNode }) {
   const projectDir = process.cwd();
   loadEnvConfig(projectDir);
+
     return (
         <html lang="en" className="h-full">
             <body className="h-full">
