@@ -22,7 +22,7 @@ export const ItemList = ({title, link, isActive}: ItemListProps)  => {
             </div>
             <span className="text-[14px] flex items-center justify-center text-center">
                         {title}
-                    </span>
+            </span>
         </Link>
     )
 }

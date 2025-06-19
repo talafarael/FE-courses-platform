@@ -5,6 +5,7 @@ import { LoginSchema, RegisterSchema } from "../model/auth-schema";
 import { z } from "zod";
 import { ResponseAuth } from "../type/api-auth";
 import { useRouter } from "next/navigation";
+import { ROUTES } from "@/src/shared/lib/constants/routes";
 
 export const useAuth = () => {
   const [error, setError] = useState<string | undefined>();
@@ -30,7 +31,7 @@ export const useAuth = () => {
   useEffect(() => {
     if (response) {
       localStorage.setItem("token", response?.message);
-      router.push("/");
+      router.push(ROUTES.home);
     }
   }, [response, router]);
   return { authMutation, error };

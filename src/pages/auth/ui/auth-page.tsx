@@ -3,7 +3,7 @@ import { FormAuth } from "@/src/features/auth/ui/auth-form";
 export type AuthPageProps = {
   state: "register" | "login";
 };
-export const AuthPage = ({ state }: AuthPageProps) => {
+const AuthPage = ({ state }: AuthPageProps) => {
   return (
     <div className="bg-milk  flex justify-center h-screen w-screen">
       <div
@@ -19,3 +19,5 @@ export const AuthPage = ({ state }: AuthPageProps) => {
     </div>
   );
 };
+
+export default AuthPage;

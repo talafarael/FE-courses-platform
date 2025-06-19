@@ -10,7 +10,7 @@ export const Navigation = () => {
         navigationList.map(({ title, link }) => {
             const isActive = pathname === link;
             return (
-                <ItemList key={title} title={title} link={link} isActive={isActive}/>
+                   <ItemList key={title} title={title} link={link} isActive={isActive}/>
             );
         })
     );
