@@ -26,6 +26,7 @@ export const RegisterUserMutation = async (
     }
   }
 };
+
 export const LoginUserMutation = async (
   data: z.infer<typeof LoginSchema>,
   setError: React.Dispatch<React.SetStateAction<string | undefined>>,
