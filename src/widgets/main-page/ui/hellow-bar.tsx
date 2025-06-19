@@ -1,7 +1,6 @@
 import {Avatar} from "@/src/shared/ui/avatar";
-
 import Link from "next/link";
-
+import {ROUTES} from "@/src/shared/lib/constants/routes";
 interface HelloBarProps {
     mainLable: string;
     secondaryLable: string;
@@ -23,7 +22,7 @@ export const HelloBar = ({mainLable, secondaryLable,authorized=false}: HelloBarP
                 </div>
             </div>
             {!authorized && (
-                <Link className="px-4 py-2 bg-purple text-white rounded-2xl text-sm font-medium hover:opacity-90 transition" href="/auth/register" >
+                <Link className="px-4 py-2 bg-purple text-white rounded-2xl text-sm font-medium hover:opacity-90 transition" href={ROUTES.register} >
                    Реєстрація
                 </Link>
 

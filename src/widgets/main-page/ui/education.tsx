@@ -1,4 +1,5 @@
 import Link from "next/link";
+import {ROUTES} from "@/src/shared/lib/constants/routes";
 interface EducationProps {
     autosize: boolean;
 }
@@ -12,7 +13,7 @@ export const Education=({autosize=false}: EducationProps )=>{
                     <p className="text-xl">Наразі, навчання вам недоступне 😔, але це можно легко виправити 😇обравши курс який сподобається та не втрачати часу</p>
                     <div className="flex flex-row justify-between">
                         <p>Ознайомитись з спеціальністю можете тут</p>
-                        <Link  className="px-4 py-2 bg-purple text-white rounded-2xl text-sm font-medium hover:opacity-90 transition" href="/main/specialities">
+                        <Link  className="px-4 py-2 bg-purple text-white rounded-2xl text-sm font-medium hover:opacity-90 transition" href={ROUTES.specialty}>
                             До спеціальностей
                         </Link>
                     </div>

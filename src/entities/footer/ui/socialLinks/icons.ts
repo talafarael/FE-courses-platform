@@ -6,22 +6,22 @@ import phone from "@/public/icons/phone.svg";
 export const icons = [
     {
         name: "instagram",
-        img: instagram.src,
+        img: instagram,
         href: "https://www.instagram.com"
     },
     {
         name: "telegram",
-        img: telegram.src,
+        img: telegram,
         href: "https://www.telegram.com"
     },
     {
         name: "email",
-        img: email.src,
+        img: email,
         href: "mailto"
     },
     {
         name: "phone",
-        img: phone.src,
+        img: phone,
         href: "tel:+380991234567"
     }
 ]

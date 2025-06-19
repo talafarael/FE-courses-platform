@@ -8,6 +8,6 @@ export type AvatarProps = {
 
 export const Avatar = ({width=150, height=150}: AvatarProps ) => {
     return(
-        <Image width={width} height={height} src={avatar.src} alt="avatar" />
+        <Image width={width} height={height} src={avatar} alt="avatar" />
     )
 }

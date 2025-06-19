@@ -6,18 +6,18 @@ import hits from "@/public/main-icons/hits.svg";
 export const icons = [
     {
         title:"achieved",
-        url:achieved.src,
+        url:achieved,
     },
     {
         title:"awards",
-        url:awards.src,
+        url:awards,
     },
     {
         title:"fire",
-        url:fire.src,
+        url:fire,
     },
     {
         title:"hits",
-        url:hits.src,
+        url:hits,
     }
 ]

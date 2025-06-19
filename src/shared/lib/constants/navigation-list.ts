@@ -1,14 +1,16 @@
+import { ROUTES } from "@/src/shared/lib/constants/routes";
+
 export const navigationList =[
     {
         title: "Головна",
-        link: "/main"
+        link: ROUTES.home
     },
     {
         title: "Профіль",
-        link: "/main/profile"
+        link: ROUTES.profile
     },
     {
         title: "Про спеціальність",
-        link: "/main/specialty"
+        link: ROUTES.specialty
     }
 ]
