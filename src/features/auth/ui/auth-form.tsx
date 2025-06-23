@@ -6,6 +6,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginSchema, RegisterSchema } from "../model/auth-schema";
 import { InputAuth } from "./auth-input";
 import { useAuth } from "../hook/auth";
+import Link from "next/link";
+import { ROUTES } from "@/src/shared/lib/constants/routes";
 
 export type FormAuthProps<T extends "login" | "register"> = {
   state: T;
@@ -35,6 +37,13 @@ export const FormAuth = <T extends "login" | "register">({
           state={state}
         />
         <h1>{error}</h1>
+        <Link
+          href={state === "login" ? ROUTES.register : ROUTES.login}
+          className="text-blue-600 hover:underline hover:text-blue-800 transition"
+        >
+          {state === "login" ? "Зареєструватися" : "Увійти"}
+        </Link>
+
         <div className="flex justify-end p-2">
           <Button type="submit" label="готово!" />
         </div>
