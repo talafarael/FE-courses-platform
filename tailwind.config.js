@@ -19,9 +19,9 @@ module.exports = {
       },
       screens: {
         "max-lg": { max: "850px" },
+        "max-xl": { max: "1200px" },
       },
     },
   },
   plugins: [],
 };
-

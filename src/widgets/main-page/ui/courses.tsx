@@ -1,5 +1,5 @@
-import {BigCard} from "@/src/widgets/main-page/ui/big-card";
-import {SmallCard} from "@/src/widgets/main-page/ui/small-card";
+import {BigCard} from "@/src/entities/main/big-card";
+import {SmallCard} from "@/src/entities/main/small-card";
 
 interface CoursesProps {
     autosize: boolean;
