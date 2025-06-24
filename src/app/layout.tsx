@@ -2,21 +2,21 @@ import React from "react";
 import { AuthProvider } from "@/src/shared/lib/providers/auth-provider";
 import "./style/globals.css";
 export const metadata = {
-  title: "next",
+	title: "next",
 };
 import { loadEnvConfig } from "@next/env";
 
 export default function RootLayout({
-  children,
+	children,
 }: { children: React.ReactNode }) {
-  const projectDir = process.cwd();
-  loadEnvConfig(projectDir);
+	const projectDir = process.cwd();
+	loadEnvConfig(projectDir);
 
-    return (
-        <html lang="en" className="h-full">
-            <body className="h-full">
-                <AuthProvider>{children}</AuthProvider>
-            </body>
-        </html>
-    )
+	return (
+		<html lang="en" className="h-full w-max max-w-[90vw]">
+			<body className="h-full">
+				<AuthProvider>{children}</AuthProvider>
+			</body>
+		</html>
+	);
 }

@@ -9,16 +9,16 @@ export default function RootLayout({
   children,
 }: { children: React.ReactNode }) {
   return (
-      <html lang="en" className="h-full">
-        <body className="h-full">
-          <div className="min-h-screen flex flex-col">
-            <LeftBar />
-            <main className="flex-1 ml-[110px] p-4">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </body>
-      </html>
+    <html lang="en" className="h-full overflow-x-hidden">
+      <body className="h-full w-[100vw] ">
+        <div className=" flex justify-between  min-h-[100vh] flex-col w-[100vw]">
+          <LeftBar />
+          <main className="flex-1 flex ml-[110px] h-max items-center justify-center p-4">
+            {children}
+          </main>
+          <Footer />
+        </div>
+      </body>
+    </html>
   );
 }
