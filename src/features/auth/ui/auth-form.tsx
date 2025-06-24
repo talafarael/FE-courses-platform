@@ -10,20 +10,20 @@ import Link from "next/link";
 import { ROUTES } from "@/src/shared/lib/constants/routes";
 
 export type FormAuthProps<T extends "login" | "register"> = {
-  state: T;
+	state: T;
 };
 export const FormAuth = <T extends "login" | "register">({
-  state,
+	state,
 }: FormAuthProps<T>) => {
-  const { authMutation, error } = useAuth();
-  const schema = state === "login" ? LoginSchema : RegisterSchema;
-  type AuthSchemaType = z.infer<typeof schema>;
-  const form = useForm<AuthSchemaType>({
-    resolver: zodResolver(schema),
-  });
-  const onSubmit = async (data: AuthSchemaType) => {
-    await authMutation(data);
-  };
+	const { authMutation, error } = useAuth();
+	const schema = state === "login" ? LoginSchema : RegisterSchema;
+	type AuthSchemaType = z.infer<typeof schema>;
+	const form = useForm<AuthSchemaType>({
+		resolver: zodResolver(schema),
+	});
+	const onSubmit = async (data: AuthSchemaType) => {
+		await authMutation(data);
+	};
 
   return (
     <FormProvider {...form}>
@@ -50,4 +50,5 @@ export const FormAuth = <T extends "login" | "register">({
       </form>
     </FormProvider>
   );
+
 };
