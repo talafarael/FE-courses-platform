@@ -1,7 +1,7 @@
 "use client";
 import menu from "@/public/menu/menu.svg";
 import Image from "next/image";
-import { Navigation } from "@/src/entities/left-bar/ui/navigation";
+import { Navigation } from "@/src/widgets/left-bar/ui/navigation/navigation";
 import { useState } from "react";
 
 export const LeftBar = () => {
