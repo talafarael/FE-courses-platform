@@ -1,5 +1,5 @@
 import logo from "@/public/Logo.svg"
-import {ItemList} from "@/src/entities/footer/ui/brandInfo/item-list";
+import {ItemList} from "@/src/widgets/footer/ui/brandInfo/item-list";
 import Image from "next/image";
 import {navigationList} from "@/src/shared/lib/constants/navigation-list";
 

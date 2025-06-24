@@ -1,7 +1,7 @@
 "use client";
 import menu from "@/public/menu/menu.svg";
 import Image from "next/image";
-import { Navigation } from "@/src/entities/left-bar/ui/navigation";
+import { Navigation } from "@/src/widgets/left-bar/ui/navigation/navigation";
 import { useState } from "react";
 
 export const LeftBar = () => {
@@ -9,7 +9,7 @@ export const LeftBar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-[110px] h-screen rounded-br-2xl flex flex-col items-center p-2 z-50 ${
+            className={`fixed top-0 left-0 w-[110px] h-screen flex flex-col items-center p-2 z-50 ${
                 isOpen ? "bg-purplelight" : "bg-transparent"
             }`}
         >
@@ -18,7 +18,7 @@ export const LeftBar = () => {
                 className="mt-10 cursor-pointer"
                 height={48}
                 width={48}
-                src={menu.src}
+                src={menu}
                 alt="menu"
             />
             {isOpen && (

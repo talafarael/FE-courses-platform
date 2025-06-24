@@ -10,9 +10,12 @@ module.exports = {
       colors: {
         milk: "#f1eef4",
         pinklight: "#FEF7FF",
+        pinky:"#EADDFF",
+        pink: "#E8DEF8",
         purplelight: "#DFD5EC",
         purple: "#65558F",
         darkPurple: "#21005D",
+
       },
       screens: {
         "max-lg": { max: "850px" },

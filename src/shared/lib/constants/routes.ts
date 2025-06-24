@@ -3,5 +3,5 @@ export enum ROUTES{
     login = "/auth/login",
     home = "/main",
     profile = "/main/profile",
-    specialty = "/main/specialty"
+    specialty = "/main/specialty",
 }
