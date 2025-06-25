@@ -5,7 +5,7 @@ export interface IUser {
   card: {
     full_name: string;
     nickname: string;
-    profile_pic: string[];
+    profile_pic: string;
   };
   email: string;
   badges: {

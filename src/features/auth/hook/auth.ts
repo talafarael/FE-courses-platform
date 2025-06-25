@@ -30,7 +30,7 @@ export const useAuth = () => {
   };
   useEffect(() => {
     if (response) {
-      localStorage.setItem("token", response?.token);
+      localStorage.setItem("token", response?.data);
       router.push(ROUTES.home);
     }
   }, [response, router]);

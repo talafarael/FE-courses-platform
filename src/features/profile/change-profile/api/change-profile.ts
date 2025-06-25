@@ -5,5 +5,5 @@ export const ChangeMeMutation = async (
   data: FormData,
 ): Promise<AxiosResponse> => {
   const axios = createApi();
-  return await axios.post("auth/register", data);
+  return await axios.put("user/edit-me", data);
 };

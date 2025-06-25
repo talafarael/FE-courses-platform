@@ -13,7 +13,7 @@ export type FormFieldProps<T extends FieldValues> = {
   placeholder: string;
   name: Path<T>;
   register: UseFormRegister<T>;
-  error?: FieldError;
+  error?: FieldError | undefined;
   valueAsNumber?: boolean;
 };
 
@@ -35,7 +35,7 @@ export const InputForm = <T extends FieldValues>({
     <>
       <div className="relative  max-w-[494px] w-[100%] ">
         <input
-          className="h-[50px] max-w-[494px] w-[100%]  border-2 border-purple rounded-[15px] px-4 py-2 outline-none focus:border-purple-600 transition-all duration-200"
+          className="h-[50px] max-w-[494px] w-[100%]  border-2 border-purple rounded-[10px] px-4 py-2 outline-none focus:border-purple-600 transition-all duration-200"
           type={type}
           {...register(name, { valueAsNumber })}
           onFocus={() => setIsFocused(true)}
