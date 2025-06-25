@@ -3,11 +3,11 @@
 import { ProtectedRoute } from "@/src/shared/lib/router/protected-route";
 import "../style/globals.css";
 import React, { useEffect } from "react";
-import { Main } from "@/src/pages/main-page/authorized-main";
 import { useUserStore } from "@/src/entities/user/model/userStore";
 import { Button } from "@/src/shared/ui/button/button";
 import Link from "next/link";
 import { ROUTES } from "@/src/shared/lib/constants/routes";
+import Main from "@/src/pages/main-page/authorized-main";
 
 export default function Home() {
   const { getUser, loading, error } = useUserStore();
@@ -29,7 +29,6 @@ export default function Home() {
       </div>
     );
   }
-
   return (
     <ProtectedRoute>
       <Main />

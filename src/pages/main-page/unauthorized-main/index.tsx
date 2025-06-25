@@ -7,11 +7,7 @@ import React from "react";
 const MainUnAuth = () => {
 	return (
 		<div className="flex flex-col  items-center p-2 gap-5  m-10">
-			<HelloBar
-				mainLable="Вітаємо вас 🤗"
-				secondaryLable="Ви ще не користувач нашої платформи, але ви завжди можете ним стати "
-				authorized={false}
-			/>
+			<HelloBar />
 			<div className="flex flex-row  justify-between w-[1500px]">
 				<div className="flex flex-col gap-4">
 					<Education autosize={false} />
