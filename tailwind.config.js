@@ -14,6 +14,7 @@ module.exports = {
         purple: "#65558F",
         darkPurple: "#21005D",
         purpleExtraLight: "#E8DEF8",
+        inputBorder: "#6750A4",
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
