@@ -13,6 +13,8 @@ export interface FormCourseProps {
   courseDefaultValue: ICreateCourse;
   handlerSend: (data: ICreateCourse) => void;
   setFile: React.Dispatch<React.SetStateAction<File | undefined>>;
+  error?: string | undefined;
+  loading?: boolean;
 }
 
 export const FormCourse = ({

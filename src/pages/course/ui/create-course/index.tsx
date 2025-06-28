@@ -1,9 +1,10 @@
-import { CreateCourse } from "@/src/features/course/ui/create-course";
+import CreateCourse from "@/src/features/course/ui";
+import React from "react";
 
-export const CreateCoursePage = () => {
+export default function CreateCoursePage() {
   return (
     <div className="w-[100vw] flex items-center justify-center h-[100vh]">
       <CreateCourse />
     </div>
   );
-};
+}
