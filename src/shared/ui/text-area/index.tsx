@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import {
   FieldError,
@@ -8,25 +7,18 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 
-export type FormFieldProps<T extends FieldValues> = {
-  type: string;
+export interface TextAreaProps<T extends FieldValues> {
   placeholder: string;
   name: Path<T>;
   register: UseFormRegister<T>;
   error?: FieldError | undefined;
-  valueAsNumber?: boolean;
-  style?: string;
-};
-
-export const InputForm = <T extends FieldValues>({
-  type,
+}
+export const TextArea = <T extends FieldValues>({
   placeholder,
   name,
   register,
   error,
-  valueAsNumber,
-  style,
-}: FormFieldProps<T>) => {
+}: TextAreaProps<T>) => {
   const [isFocused, setIsFocused] = useState(false);
   const { watch } = useFormContext();
   const watchedValue = watch(name);
@@ -34,16 +26,15 @@ export const InputForm = <T extends FieldValues>({
     isFocused || (watchedValue !== undefined && watchedValue !== "");
 
   return (
-    <div className={`relative  max-w-[494px] w-[100%] !${style}`}>
-      <input
-        className={`h-[50px] max-w-[494px] w-[100%]  border-2 border-purple rounded-[10px] px-4 py-2 outline-none focus:border-purple-600 transition-all duration-200 !${style}`}
-        type={type}
-        {...register(name, { valueAsNumber })}
+    <div className="relative max-w-[771px]  h-[354px] w-full ">
+      <textarea
+        className="min-h-[100px] h-[354px] p-[5px] w-[700px] pt-[10px]  max-w-[771px] border-[2px] rounded-[10px] border-inputBorder"
+        {...register(name)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       />
       <label
-        className={`absolute left-4 pointer-events-none transition-all duration-200 ease-in-out bg-pinklight px-1 ${isLabelFloating
+        className={`absolute max-w-[771px]  w-auto max-h-[354px] left-4 pointer-events-none transition-all duration-200 ease-in-out bg-pinklight px-1 ${isLabelFloating
             ? "top-[-6px] text-xs text-purple"
             : "top-2 text-base text-gray-600"
           }`}
@@ -51,7 +42,7 @@ export const InputForm = <T extends FieldValues>({
         {placeholder}
       </label>
       {error && (
-        <span className="error-message text-darkPurple ">{error?.message}</span>
+        <span className="error-message text-darkPurple">{error.message}</span>
       )}
     </div>
   );

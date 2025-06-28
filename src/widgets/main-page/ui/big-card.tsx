@@ -15,7 +15,10 @@ export const BigCard = ({ mainLable, secondaryLable }: BigCardProps) => {
         </div>
       </div>
       <div className="flex justify-end">
-        <button className="px-4 py-1 bg-purple text-white rounded-xl text-sm">
+        <button
+          type="button"
+          className="px-4 py-1 bg-purple text-white rounded-xl text-sm"
+        >
           Детальніше
         </button>
       </div>

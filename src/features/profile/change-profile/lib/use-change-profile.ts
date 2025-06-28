@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { ChangeMeMutation } from "../api/change-profile";
 import { IFormChangeProfile } from "../model/change-profile";
@@ -17,7 +18,6 @@ export const useChangeProfile = () => {
       if (value !== undefined && value !== null) {
         form.append(key, value as string);
       } else {
-        form.append(key, "");
       }
     });
     if (img) {
