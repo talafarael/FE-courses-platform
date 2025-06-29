@@ -26,9 +26,9 @@ export const TextArea = <T extends FieldValues>({
     isFocused || (watchedValue !== undefined && watchedValue !== "");
 
   return (
-    <div className="relative max-w-[771px]  h-[354px] w-full ">
+    <div className="relative  max-w-[771px]  max-h-[354px] h-full w-full ">
       <textarea
-        className="min-h-[100px] h-[354px] p-[5px] w-[700px] pt-[10px]  max-w-[771px] border-[2px] rounded-[10px] border-inputBorder"
+        className="min-h-[100px] h-[354px] p-[5px] w-[700px] pt-[10px]  max-w-[771px]  border-[2px] rounded-[10px] border-inputBorder"
         {...register(name)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}

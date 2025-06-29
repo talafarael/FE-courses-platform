@@ -13,13 +13,4 @@ export const navigationList = [
     title: "Про спеціальність",
     link: ROUTES.specialty,
   },
-  {
-    title: "create",
-    link: ROUTES.createCourse,
-  },
-  {
-    title: "course",
-    link: ROUTES.course,
-  },
 ];
-

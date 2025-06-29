@@ -1,5 +1,5 @@
 import { IUnitCreate } from "@/src/features/unit/model/unit";
 
-export interface Unit extends IUnitCreate {
+export interface IUnit extends IUnitCreate {
   entries: [];
 }

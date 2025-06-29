@@ -47,7 +47,8 @@ export const useFactoryCourse = () => {
           data: form,
         });
       if (res?.data?.data) {
-        router.push(`${ROUTES.course}/${res?.data?.data}`);
+        router.push(`${ROUTES.course}/${res?.data?.data?.id}`);
+        setError(undefined);
       }
     } catch (e) {
       const errMessagehandlerError = handlerError(e);

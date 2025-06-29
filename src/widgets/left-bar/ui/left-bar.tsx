@@ -5,11 +5,11 @@ import { Navigation } from "@/src/entities/left-bar/ui/navigation";
 import { useState } from "react";
 
 export const LeftBar = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-[110px] h-screen rounded-br-2xl flex flex-col items-center p-2 z-10 ${isOpen ? "bg-purplelight" : "bg-transparent"
+      className={`fixed top-0 left-0 w-[110px] h-screen rounded-br-2xl flex flex-col items-center p-2  ${isOpen ? "bg-purplelight" : "bg-transparent"
         }`}
     >
       <Image
