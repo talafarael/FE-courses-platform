@@ -7,7 +7,7 @@ interface CreateUnitPageProps {
 export default function CreateUnitPage({ handlerClose }: CreateUnitPageProps) {
   return (
     <ModalWindow handlerClose={handlerClose}>
-      <CreateUnit />
+      <CreateUnit handlerCloseWindow={handlerClose} />
     </ModalWindow>
   );
 }

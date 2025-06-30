@@ -10,12 +10,8 @@ import { ROUTES } from "@/src/shared/lib/constants/routes";
 import Main from "@/src/pages/main-page/authorized-main";
 
 export default function Home() {
-  const { getUser, loading, error } = useUserStore();
-  useEffect(() => {
-    (async () => {
-      await getUser();
-    })();
-  }, []);
+  const { loading, error } = useUserStore();
+
   if (loading) {
     return <div>Загрузка...</div>;
   }

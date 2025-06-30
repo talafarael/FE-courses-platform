@@ -50,6 +50,7 @@ export const InputsUnits = ({ register, errors }: InputsUnitsProps) => {
             type={inputsPriceUnitData.name}
             placeholder={inputsPriceUnitData.name}
             name={inputsPriceUnitData.name}
+            valueAsNumber={true}
             register={register}
             error={errors ? errors[inputsPriceUnitData.name] : undefined}
           />
