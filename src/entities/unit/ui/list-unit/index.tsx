@@ -6,7 +6,7 @@ export interface ListUnitsProps {
 }
 export const ListUnits = ({ units }: ListUnitsProps) => {
   return (
-    <div>
+    <div className="flex mt-[28px] flex-col items-center gap-[28px]">
       {units.map((elem) => (
         <CardUnit unit={elem} key={elem.id} />
       ))}

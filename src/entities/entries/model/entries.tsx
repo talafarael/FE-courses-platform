@@ -3,4 +3,14 @@ export interface IEntries {
   name: string;
   price_in_pln: number;
   id: string;
+  lecture?: {
+    id: string;
+    name: string;
+    sections: [];
+  };
+  test?: {
+    id: string;
+    name: string;
+    sections: [];
+  };
 }
