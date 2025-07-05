@@ -1,8 +1,6 @@
 export interface IEntries {
-	id: string;
-	unit_id: string;
-	order: number;
-	//now null
-	lecture?: null;
-	test?: null;
+  course_id: string;
+  name: string;
+  price_in_pln: number;
+  id: string;
 }
