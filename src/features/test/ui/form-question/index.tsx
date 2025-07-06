@@ -1,7 +1,10 @@
-export const FormQuestion = () => {
-	const form = useForm<IFromEntries>({
-		resolver: zodResolver(FormEntriesSchema),
-	});
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
-	return <div></div>;
+export const FormQuestion = () => {
+  const form = useForm<>({
+    resolver: zodResolver(FormEntriesSchema),
+  });
+
+  return <div></div>;
 };
