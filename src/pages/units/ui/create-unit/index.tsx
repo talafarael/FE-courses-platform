@@ -2,12 +2,16 @@
 import { CreateUnit } from "@/src/features/unit/ui/create-unit";
 import { ModalWindow } from "@/src/shared/ui/modal";
 interface CreateUnitPageProps {
-  handlerClose: () => void;
+	handlerClose: () => void;
+	order: number;
 }
-export default function CreateUnitPage({ handlerClose }: CreateUnitPageProps) {
-  return (
-    <ModalWindow handlerClose={handlerClose}>
-      <CreateUnit handlerCloseWindow={handlerClose} />
-    </ModalWindow>
-  );
+export default function CreateUnitPage({
+	handlerClose,
+	order,
+}: CreateUnitPageProps) {
+	return (
+		<ModalWindow handlerClose={handlerClose}>
+			<CreateUnit order={order} handlerCloseWindow={handlerClose} />
+		</ModalWindow>
+	);
 }

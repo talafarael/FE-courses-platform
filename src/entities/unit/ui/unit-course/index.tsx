@@ -13,11 +13,17 @@ export const UnitCourse = ({
 	handlerAdminAddModule,
 }: UnitCourseProps) => {
 	return (
-		<div>
+		<div className="w-[100%] flex flex-col items-center">
 			<ListUnits units={unit} />
 
 			{admin && (
-				<Button label="додати модуль" handlerEvent={handlerAdminAddModule} />
+				<div className="w-[90%] justify-center items-center mt-[20px]">
+					<Button
+						label="додати модуль"
+						handlerEvent={handlerAdminAddModule}
+						style="w-[180px]"
+					/>
+				</div>
 			)}
 		</div>
 	);

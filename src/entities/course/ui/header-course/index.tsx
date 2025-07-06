@@ -12,10 +12,13 @@ export const HeaderCourse = ({
 	picture,
 }: HeaderCourseProps) => {
 	return (
-		<div className="">
-			<CoursePicture img={picture} />
-			<h1 className="text-[30px]">{name}</h1>
-			<h1 className="text-500 text-[20px]">{description}</h1>
+		<div className="w-[90%] mt-[20px]">
+			<div className="flex justify-between items-center  h-auto">
+				<CoursePicture img={picture} style="w-[100px]   " />
+				<h1 className="text-[24px] w-auto ml-[10px]">{name}</h1>
+			</div>
+
+			<h1 className="text-500 text-[14px] font-bold mt-[8px]">{description}</h1>
 		</div>
 	);
 };

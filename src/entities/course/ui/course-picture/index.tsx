@@ -1,9 +1,17 @@
 import Image from "next/image";
 
 export interface CoursePictureProps {
-  img: string;
-  style?: string;
+	img: string;
+	style?: string;
 }
-export const CoursePicture = ({ img }: CoursePictureProps) => {
-  return <Image alt="" src={img} height={50} width={50} />;
+export const CoursePicture = ({ img, style }: CoursePictureProps) => {
+	return (
+		<Image
+			height={60}
+			width={70}
+			className={`rounded-[50%] ${style}`}
+			alt=""
+			src={img}
+		/>
+	);
 };

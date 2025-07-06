@@ -1,46 +1,13 @@
-"use client";
-
-import { AxiosMutation } from "@/src/shared/api/axios";
 import { handlerError } from "@/src/shared/lib/error/error-handler";
-import { IApiResponse } from "@/src/shared/model/api/api-response";
-import { AxiosResponse } from "axios";
 import { useState } from "react";
-import { ICreateEntries } from "../model/create-entries";
-import { IEntries } from "@/src/entities/entries/model/entries";
-import { IFromEntries } from "../model/form-entries";
-import { useCurrentCourseStore } from "@/src/entities/course/model/use-current-course";
-import { useParams } from "next/navigation";
 
-interface DefEntries {
-  unit_id: string;
-  handlerCloseWindow: () => void;
-  order: number;
-}
-
-interface UpdateEntries extends DefEntries {
-  state: "edit";
-  data: IFromEntries;
-}
-
-interface CreateEntries extends DefEntries {
-  state: "create";
-  data: IFromEntries;
-}
-
-export type FactoryEntriesProps = CreateEntries | UpdateEntries;
-export const useFactoryEntries = () => {
+export const useChangeOrderEntries = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>();
   const params = useParams();
   const { getCurrentCourse, error: currentCourseError } =
     useCurrentCourseStore();
-  const handlerFactoryEntries = async ({
-    data,
-    state,
-    unit_id,
-    order,
-    handlerCloseWindow,
-  }: FactoryEntriesProps) => {
+  const handlerChagneOrderEntries = async ({handlerClose}: ) => {
     setLoading(true);
     try {
       let body: ICreateEntries;
@@ -74,7 +41,7 @@ export const useFactoryEntries = () => {
 
         if (id) await getCurrentCourse(id as string);
         if (currentCourseError) setError(currentCourseError);
-        handlerCloseWindow();
+        handlerClose();
       }
       setError(undefined);
     } catch (e) {
@@ -83,5 +50,5 @@ export const useFactoryEntries = () => {
     }
     setLoading(false);
   };
-  return { handlerFactoryEntries, error, loading };
+  return { handlerChagneOrderEntries, error, loading };
 };

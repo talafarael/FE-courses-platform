@@ -5,6 +5,7 @@ export interface IFormUnit {
 }
 export interface IUnitCreate extends IFormUnit {
   course_id: string;
+  order: number;
 }
 export interface IResponseUnit extends IUnitCreate {
   id: string;
