@@ -6,6 +6,6 @@ export enum ROUTES {
   specialty = "/main/specialty",
   createCourse = "/course/create-course",
   course = "/main/course",
-  test = "/test",
+  test = "",
   redactor = "/redactor",
 }

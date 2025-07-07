@@ -1,6 +1,11 @@
+import { useCurrentCourseStore } from "@/src/entities/course/model/use-current-course";
 import { handlerError } from "@/src/shared/lib/error/error-handler";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 
+export interface ChagneOrderEntriesProps{
+
+}
 export const useChangeOrderEntries = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>();
@@ -10,26 +15,7 @@ export const useChangeOrderEntries = () => {
   const handlerChagneOrderEntries = async ({handlerClose}: ) => {
     setLoading(true);
     try {
-      let body: ICreateEntries;
-      if (data.typeEntries === "lecture") {
-        body = {
-          unit_id: unit_id,
-          order: order,
-          lecture: {
-            name: data.name,
-          },
-          test: null,
-        };
-      } else {
-        body = {
-          unit_id: unit_id,
-          order: order,
-          lecture: null,
-          test: {
-            name: data.name,
-          },
-        };
-      }
+      
       const res: AxiosResponse<IApiResponse<IEntries>> =
         await AxiosMutation<ICreateEntries>({
           method: state === "edit" ? "put" : "post",

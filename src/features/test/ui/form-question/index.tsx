@@ -1,10 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 
 export const FormQuestion = () => {
   const form = useForm<>({
-    resolver: zodResolver(FormEntriesSchema),
+    resolver: zodResolver(),
   });
 
-  return <div></div>;
+  return <FormProvider {...form}>
+    <form>
+
+    </form>
+  </FormProvider>;
 };
