@@ -44,8 +44,8 @@ export const InputForm = <T extends FieldValues>({
       />
       <label
         className={`absolute left-4 pointer-events-none transition-all duration-200 ease-in-out bg-pinklight px-1 ${isLabelFloating
-            ? "top-[-6px] text-xs text-purple"
-            : "top-2 text-base text-gray-600"
+          ? "top-[-6px] text-xs text-purple"
+          : "top-2 text-base text-gray-600"
           }`}
       >
         {placeholder}
