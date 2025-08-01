@@ -38,6 +38,7 @@ export const useCreateQuestion = () => {
           order: order,
           select_question: {
             question_text: data.question_text,
+            question_images: {}
           },
           form_question: null,
         } as ICreateQuestionSelect
@@ -52,21 +53,21 @@ export const useCreateQuestion = () => {
             },
             answers: {
               "0": [
-                data.assessment1,
+                Number(data.assessment1),
                 data.answer1
               ],
               "1": [
-                data.assessment2,
+                Number(data.assessment2),
                 data.answer2,
               ],
             }
           }
         } as ICreatQuestionForm
         if (data.answer3 && data.assessment3 !== undefined) {
-          body.form_question.answers["3"] = [data.assessment3, data.answer3];
+          body.form_question.answers["3"] = [Number(data.assessment3), data.answer3];
         }
         if (data.answer4 && data.assessment4) {
-          body.form_question.answers["4"] = [data.assessment4, data.answer4];
+          body.form_question.answers["4"] = [Number(data.assessment4), data.answer4];
         }
       }
       const res: AxiosResponse<IApiResponse<ITest>> =
@@ -91,3 +92,22 @@ export const useCreateQuestion = () => {
   };
   return { handlerCreateQuestion, error, loading };
 };
+
+
+const selectQuestionTransform = (test: string) => {
+  const arr = []
+  const matches = input.match(/\{([^}]+)\}/);
+
+  let formattedText = input;
+  let valuesArray = [];
+
+  if (matches) {
+    const values = matches[1].split(',').map(v => v.trim());
+
+    formattedText = input.replace(/\{[^}]+\}/, '{"0"}');
+
+    const [name, number] = values;
+    valuesArray = [Number(number), name];
+  }
+
+}

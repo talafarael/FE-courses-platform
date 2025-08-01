@@ -10,7 +10,7 @@ export const CreateTest = ({ entry, order }: CreateTestProps) => {
   //{entry.test?.sections?.map()}
 
   return (
-    <div className="w-[100%]">
+    <div className="w-[100%] h-[100vh] flex items-center justify-center">
       <FactoryQuestion order={order} />
     </div>
   );

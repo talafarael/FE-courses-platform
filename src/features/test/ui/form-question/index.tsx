@@ -5,6 +5,7 @@ import { ICraeteQuestionForm, ICraeteQuestionSelector, ICreateQuestionForm, ICre
 import { FactoryInputQuestion } from "../factory-input-question";
 import { Button } from "@/src/shared/ui/button/button";
 import { FactoryInputAnswer } from "../factory-input-answer";
+import { FactoryInputSelect } from "../factory-select";
 
 interface FactoryQuestionProps {
   question?: ICraeteQuestionForm;
@@ -23,18 +24,27 @@ export const FormQuestion = ({
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={form.handleSubmit((data) => handlerSubmit(data))}>
+      <form
+        onSubmit={form.handleSubmit((data) => handlerSubmit(data))}
+        className="w-[70vw] "
+      >
+        <h1 className="text-[white] text-[14px]">Створення завдання для курсу</h1>
         <FactoryInputQuestion
           errors={form.formState.errors}
           register={form.register}
         />
-        {form.getValues("type") === "form-question" &&
-          <FactoryInputAnswer
-            errors={form.formState.errors}
-            register={form.register}
-          />
+        {form.watch("type") === "select-question" &&
+          <div>
+            <p>{`Example: Прізвище, ім’я: {Клиймович Кирило, 10}`}</p>
+            <FactoryInputSelect
+              errors={form.formState.errors}
+              register={form.register}
+            />
+          </div>
 
         }
+
+
         <Button type="submit" label="Створити" />
 
       </form>

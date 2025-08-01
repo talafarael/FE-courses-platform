@@ -13,24 +13,15 @@ export const FactoryInputQuestion = ({
   errors,
 }: FactoryInputQuestionProps) => {
   return (
-    <div>
+    <div className="flex flex-row-reverse justify-end" >
       {factoryInputQuestionData?.map((elem) => {
-        if (elem.state === "normal-input") {
-          return (
-            <div key={elem.name} className="w-[350px]">
-              <InputForm<ICreateQuestionForm>
-                type={elem.name}
-                placeholder={elem.name}
-                name={elem.name}
-                register={register}
-                error={errors ? errors[elem.name] : undefined}
-              />
-            </div>
-          );
-        }
+
         if (elem.state === "optional-input") {
           return (
-            <div key={elem.name}>
+            <div
+              key={elem.name}
+              className="h-[50px]"
+            >
               <InputOptional<ICreateQuestionForm>
                 placeholder={elem.name}
                 name={elem.name}

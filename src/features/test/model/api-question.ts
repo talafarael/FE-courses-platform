@@ -2,14 +2,14 @@
 export interface ICraeteQuestionForm {
   type: "form-question"
   question_text: string;
-  assessment1: number;
-  answer1: string
-  assessment2: number;
-  answer2: string
-  assessment3?: number;
-  answer3?: string
-  assessment4?: number;
-  answer4?: string
+  //assessment1: string;
+  //answer1: string
+  //assessment2: string;
+  //answer2: string
+  //assessment3?: string;
+  //answer3?: string
+  //assessment4?: string;
+  //answer4?: string
 }
 
 export interface ICraeteQuestionSelector {

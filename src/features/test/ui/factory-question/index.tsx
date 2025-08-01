@@ -1,4 +1,3 @@
-import { loadavg } from "os";
 import { FormQuestion } from "../form-question";
 import { ITest } from "@/src/entities/test/model/test";
 import { useCreateQuestion } from "../../api/use-create-question";
@@ -16,10 +15,12 @@ export const FactoryQuestion = ({ question, order }: FactoryQuestionProps) => {
     loading: createLoading,
   } = useCreateQuestion();
   const handlerSubmit = async (data: ICreateQuestionForm) => {
-    //await handlerCreateQuestion({ data, order });
+    await handlerCreateQuestion({ data, order });
   };
   return (
-    <div className="w-[100%] h-[200px] bg-questPurple">
+    <div
+      className="w-[80vw] h-[50vh] bg-questPurple flex justify-center items-center rounded-[10px]"
+    >
       <FormQuestion
         handlerSubmit={handlerSubmit}
         error={createError}

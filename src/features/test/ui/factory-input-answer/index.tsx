@@ -2,8 +2,8 @@ import React from 'react'
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { ICraeteQuestionForm, ICreateQuestionForm, IQuestionType } from "../../model/api-question"; import { factoryInputQuestionData } from "./factory-input-question.data";
 import { useFormAnswerData } from '../form-question/use-form-answer.data';
-import { Input } from '@/src/shared/ui/input/input';
 import { InputForm } from '@/src/shared/ui/input-form';
+import { Button } from '@/src/shared/ui/button/button';
 
 
 interface FactoryInputAnswerProps {
@@ -14,14 +14,18 @@ export const FactoryInputAnswer: React.FC<FactoryInputAnswerProps> = ({
   register,
   errors,
 }) => {
-  const { countAnswer, setCountAnswer, formAnswerData } = useFormAnswerData()
+  const { handlerRemove, handlerAdd, formAnswerData } = useFormAnswerData()
+
   return (
-    <div>
+    <div className='w-[100%] mt-[10px]'>
       {formAnswerData?.map((elem, index) => {
         const answer = elem[0]
         const assessment = elem[1]
         return (
-          <div key={index}>
+          <div
+            key={index}
+            className='ml-[20px] flex  justify-end flex-row-reverse'
+          >
             <InputForm<ICreateQuestionForm>
               type={answer.name}
               placeholder={answer.name}
@@ -29,7 +33,7 @@ export const FactoryInputAnswer: React.FC<FactoryInputAnswerProps> = ({
               register={register}
               error={errors ? errors[answer.name] : undefined}
             />
-            <div>
+            <div className='w-[140px]'>
               <InputForm<ICreateQuestionForm>
                 type={assessment.name}
                 placeholder={assessment.name}
@@ -43,6 +47,9 @@ export const FactoryInputAnswer: React.FC<FactoryInputAnswerProps> = ({
         )
       }
       )}
+      <Button handlerEvent={handlerAdd} label="Додати инпут" type='button' />
+      <Button handlerEvent={handlerRemove} label="Додати " type='button' />
+
     </div>
   )
 }
