@@ -2,6 +2,7 @@
 import { ProfilePage } from "@/src/pages/profile";
 import React, { useEffect, useState } from "react";
 import { getMeQuery } from "@/src/entities/user/api/user";
+import { ProtectedRoute } from "@/src/shared/lib/router/protected-route";
 
 const Page = () => {
   const [isAuth, setIsAuth] = useState<boolean | null>(null);
@@ -23,7 +24,10 @@ const Page = () => {
   }
 
   return (
-    <ProfilePage />
+      <ProtectedRoute>
+          <ProfilePage />
+      </ProtectedRoute>
+
   )
 }
 export default Page;

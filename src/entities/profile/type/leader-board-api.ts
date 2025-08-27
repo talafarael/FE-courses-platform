@@ -1,4 +1,4 @@
-export interface TopRatingResponse {
+export interface LeaderBoardResponse {
     ok: boolean;
     message: string;
     data: {

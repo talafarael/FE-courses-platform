@@ -1,13 +1,13 @@
 import { createApi } from "@/src/shared/api/axios";
 import { AxiosResponse } from "axios";
-import {TopRatingResponse} from "../type/leader-board-api";
+import {LeaderBoardResponse} from "../type/leader-board-api";
 
 
-export const leaderBoardQuery = async (): Promise <TopRatingResponse | null> => {
+export const getLeaderBoardQuery = async (): Promise <LeaderBoardResponse | null> => {
     const axios = createApi();
 
     try {
-        const res: AxiosResponse<TopRatingResponse> = await axios.get("/user/get-leaderboard");
+        const res: AxiosResponse<LeaderBoardResponse> = await axios.get("/user/get-leaderboard");
         console.log(res.data);
         return res.data;
     } catch (e) {

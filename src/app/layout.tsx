@@ -13,8 +13,8 @@ export default function RootLayout({
 	loadEnvConfig(projectDir);
 
 	return (
-		<html lang="en" className="h-full w-max max-w-[90vw]">
-			<body className="h-full">
+		<html lang="en" className="h-screen overflow-x-hidden">
+			<body className="h-full w-screen">
 				<AuthProvider>{children}</AuthProvider>
 			</body>
 		</html>

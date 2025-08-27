@@ -1,18 +1,20 @@
 import {HelloBar} from "@/src/widgets/main-page/ui/hellow-bar";
-import {Streak} from "@/src/widgets/profile/ui/streak";
+import {Streak} from "@/src/widgets/profile/ui/streak/streak";
 import {Rating} from "@/src/widgets/profile/ui/rating/rating";
-import {Hits} from "@/src/widgets/profile/ui/hits";
+import {Hits} from "@/src/widgets/profile/ui/hits/hits";
 import {Badges} from "@/src/widgets/profile/ui/badges/badges";
+import {Notifications} from "@/src/widgets/profile/ui/notifications/notifications";
 
 export const ProfilePage = () => {
 
     return(
         <div className="flex flex-col items-center p-2 gap-5  m-10">
-            <HelloBar mainLable="Павле, ось ваш профіль 👇" secondaryLable="Саме в цьому місці ви можете більш детально ознайомитись зі своїм прогресом та досягненнями 🙌" authorized={false}/>
+            <HelloBar/>
             <div className="flex flex-row gap-5 w-[1500px]">
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-6">
                     <Streak/>
                     <Hits/>
+                    <Notifications/>
                 </div>
                 <div className="flex flex-col gap-5">
                     <Rating/>
