@@ -28,7 +28,6 @@ export const InputAuth = <
   register,
 }: InputAuthProps<T, Y>) => {
   const authData = state === "login" ? loginData : registerData;
-  console.log(authData);
   return (
     <div className="flex max-w-[494px] w-[90%] items-end flex-col gap-2 max-lg:max-w-[350px]">
       {authData?.map((elem) => {

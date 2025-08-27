@@ -15,7 +15,11 @@ module.exports = {
         purplelight: "#DFD5EC",
         purple: "#65558F",
         darkPurple: "#21005D",
-
+        purpleExtraLight: "#E8DEF8",
+        inputBorder: "#6750A4",
+      },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
       },
       screens: {
         "max-lg": { max: "850px" },

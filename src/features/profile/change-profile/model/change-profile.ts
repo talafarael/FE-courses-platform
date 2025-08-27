@@ -1,6 +1,6 @@
 export interface IFormChangeProfile {
   nickname: string;
-  telegram: string;
+  telegram?: string | null;
   full_name: string;
-  instagram: string;
+  instagram?: string | null;
 }
