@@ -8,7 +8,7 @@ export const Navigation = () => {
 
     return (
         navigationList.map(({ title, link }) => {
-            const isActive = pathname === link;
+            const isActive= pathname === link
             return (
                    <ItemList key={title} title={title} link={link} isActive={isActive}/>
             );

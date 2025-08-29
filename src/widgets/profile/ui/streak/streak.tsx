@@ -4,11 +4,16 @@ import { useLastWeek } from "@/src/entities/profile/hook/last-week-hook";
 import 'react-calendar/dist/Calendar.css';
 import { Fire } from "@/src/shared/ui/fire";
 import ClipLoader from "react-spinners/ClipLoader";
+import {Iadmin} from "@/src/pages/profile/Iadmin";
 
-export const Streak = () => {
+
+export const Streak = ({admin}:Iadmin) => {
     const { dataWeek, loadingWeek, errorWeek } = useCheckins();
     const { data, loading, error } = useLastWeek();
 
+    if(admin){
+        return(<></>)
+    }
     console.log(dataWeek)
     const availableDays = new Set(Object.keys(data?.data ?? {}));
 

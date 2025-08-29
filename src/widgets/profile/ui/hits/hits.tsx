@@ -3,10 +3,14 @@ import Image from "next/image";
 import {HitsItem} from "@/src/widgets/profile/ui/hits/hits-item";
 import {useHits} from "@/src/entities/profile/hook/hits-hook";
 import ClipLoader from "react-spinners/ClipLoader";
+import {Iadmin} from "@/src/pages/profile/Iadmin";
 
-export const Hits=()=>{
+export const Hits=({admin}:Iadmin)=>{
     const {data, loading, error} = useHits();
 
+    if(admin){
+        return(<></>)
+    }
     if(data?.data === 0){
          return(<></>)
      }

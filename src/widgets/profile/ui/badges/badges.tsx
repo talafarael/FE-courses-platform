@@ -3,11 +3,16 @@ import Image from "next/image";
 import { BadgesItem } from "./badges-item";
 import {useBadges} from "@/src/entities/profile/hook/badges-hook";
 import ClipLoader from "react-spinners/ClipLoader";
+import {Iadmin} from "@/src/pages/profile/Iadmin";
 
-export const Badges = () => {
+export const Badges = ({admin}:Iadmin) => {
+
     const {data, loading, error} = useBadges();
-
+    if(admin){
+        return(<></>)
+    }
     const badgeCount = data?.data?.length ?? 0;
+
 
     if(badgeCount === 0){
          return(<></>)
