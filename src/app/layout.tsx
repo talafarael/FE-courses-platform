@@ -12,11 +12,11 @@ export default function RootLayout({
   const projectDir = process.cwd();
   loadEnvConfig(projectDir);
 
-  return (
-    <html lang="en" className="h-full w-max max-w-[90vw] overflow-x-hidden">
-      <body className="h-full">
-        <AuthProvider>{children}</AuthProvider>
-      </body>
-    </html>
-  );
-}
+	return (
+		<html lang="en" className="h-screen overflow-x-hidden">
+			<body className="h-full w-screen">
+				<AuthProvider>{children}</AuthProvider>
+			</body>
+		</html>
+	);
+

@@ -1,6 +1,8 @@
 "use client";
+
 import { BigCard } from "./big-card";
 import { SmallCard } from "./small-card";
+
 interface CoursesProps {
   autosize: boolean;
 }

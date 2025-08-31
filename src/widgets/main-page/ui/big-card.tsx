@@ -25,3 +25,4 @@ export const BigCard = ({ mainLable, secondaryLable }: BigCardProps) => {
     </div>
   );
 };
+
