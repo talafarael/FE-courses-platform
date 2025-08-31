@@ -43,7 +43,7 @@ export const useFactoryCourse = () => {
       const res: AxiosResponse<IApiResponse<ICourse>> =
         await AxiosMutation<FormData>({
           method: state === "edit" ? "put" : "post",
-          path: `courses/${state}`,
+          path: `admin/courses/${state}`,
           data: form,
         });
       if (res?.data?.data) {

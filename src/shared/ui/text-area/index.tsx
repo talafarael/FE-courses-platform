@@ -28,15 +28,15 @@ export const TextArea = <T extends FieldValues>({
   return (
     <div className="relative  max-w-[771px]  max-h-[354px] h-full w-full ">
       <textarea
-        className="min-h-[100px] h-[354px] p-[5px] w-[700px] pt-[10px]  max-w-[771px]  border-[2px] rounded-[10px] border-inputBorder"
+        className="min-h-[100px] h-full p-[5px] w-[700px] pt-[10px]  max-w-[771px]  border-[2px] rounded-[10px] border-inputBorder"
         {...register(name)}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
       />
       <label
         className={`absolute max-w-[771px]  w-auto max-h-[354px] left-4 pointer-events-none transition-all duration-200 ease-in-out bg-pinklight px-1 ${isLabelFloating
-            ? "top-[-6px] text-xs text-purple"
-            : "top-2 text-base text-gray-600"
+          ? "top-[-6px] text-xs text-purple"
+          : "top-2 text-base text-gray-600"
           }`}
       >
         {placeholder}

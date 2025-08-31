@@ -16,7 +16,7 @@ export interface ImgFormProps {
 }
 export const imgForm = ({ img, form }: ImgFormProps): FormData => {
   if (img) {
-    form.append("profile_pic", img);
+    form.append("picture", img);
   }
   return form;
 };

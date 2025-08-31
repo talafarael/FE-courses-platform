@@ -1,0 +1,15 @@
+import type { IEntriesTest } from "@/src/entities/entries/model/entries";
+import { FactoryQuestion } from "../factory-question";
+
+export interface CreateTestProps {
+  entry: Partial<IEntriesTest>;
+  order: number;
+}
+export const CreateTest = ({ order }: CreateTestProps) => {
+
+  return (
+    <div className="w-[100%] h-[100vh] flex items-center justify-center">
+      <FactoryQuestion order={order} />
+    </div>
+  );
+};
