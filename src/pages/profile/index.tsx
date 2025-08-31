@@ -8,14 +8,14 @@ import {Iadmin} from "@/src/pages/profile/Iadmin";
 import {CourseList} from "@/src/widgets/profile/ui/course-list/course-list";
 import {Invitation} from "@/src/widgets/profile/ui/invitation/invitation";
 
-export const ProfilePage = ({admin}:Iadmin) => {
+export const ProfilePage = ({admin, id}:Iadmin ) => {
 
     return(
         <div className="flex flex-col items-center p-2 gap-5  m-10">
             <HelloBar/>
             <div className="flex flex-row gap-5 w-[1500px]">
                 <div className="flex flex-col gap-6">
-                    <CourseList admin={admin}/>
+                    <CourseList admin={admin} id={id}/>
                     <Streak admin={admin}/>
                     <Hits admin={admin}/>
                     <Notifications/>

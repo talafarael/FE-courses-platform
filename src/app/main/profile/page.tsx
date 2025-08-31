@@ -7,6 +7,7 @@ import { ProtectedRoute } from "@/src/shared/lib/router/protected-route";
 const Page = () => {
     const [isAuth, setIsAuth] = useState<boolean | null>(null);
     const [isAdmin, setIsAdmin] = useState<boolean>(false);
+    const [id, setId] = useState<string | null>(null);
 
     useEffect(() => {
         const token = localStorage.getItem("token");
@@ -15,6 +16,7 @@ const Page = () => {
         (async () => {
             try {
                 const { data } = await getMeQuery();
+                setId(data?.data.id)
                 setIsAdmin(data?.data.has_admin_rights);
             } catch (e) {
                 setIsAuth(false);
@@ -31,7 +33,7 @@ const Page = () => {
 
     return (
         <ProtectedRoute>
-            <ProfilePage admin={isAdmin} />
+            <ProfilePage admin={isAdmin} id={id}/>
         </ProtectedRoute>
     );
 };
