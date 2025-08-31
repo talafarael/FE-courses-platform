@@ -6,8 +6,6 @@ import { IApiResponse } from "@/src/shared/model/api/api-response";
 import { AxiosMutation } from "@/src/shared/api/axios";
 import { IUnit } from "@/src/entities/unit/model/unit";
 import { handlerError } from "@/src/shared/lib/error/error-handler";
-import { useUserStore } from "@/src/entities/user/model/userStore";
-import { stat } from "fs";
 import { useCurrentCourseStore } from "@/src/entities/course/model/use-current-course";
 
 interface UpdateUnit {

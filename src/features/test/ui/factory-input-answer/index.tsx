@@ -1,6 +1,6 @@
 import React from 'react'
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { ICraeteQuestionForm, ICreateQuestionForm, IQuestionType } from "../../model/api-question"; import { factoryInputQuestionData } from "./factory-input-question.data";
+import { ICraeteQuestionForm, ICreateQuestionForm } from "../../model/api-question";
 import { useFormAnswerData } from '../form-question/use-form-answer.data';
 import { InputForm } from '@/src/shared/ui/input-form';
 import { Button } from '@/src/shared/ui/button/button';
@@ -42,7 +42,6 @@ export const FactoryInputAnswer: React.FC<FactoryInputAnswerProps> = ({
                 error={errors ? errors[assessment.name] : undefined}
               />
             </div>
-
           </div>
         )
       }

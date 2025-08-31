@@ -1,14 +1,14 @@
 import { FormQuestion } from "../form-question";
 import { ITest } from "@/src/entities/test/model/test";
 import { useCreateQuestion } from "../../api/use-create-question";
-import { ICraeteQuestionForm, ICreateQuestionForm } from "../../model/api-question";
+import { ICreateQuestionForm } from "../../model/api-question";
 
 interface FactoryQuestionProps {
   question?: ITest;
   order: number;
 }
 
-export const FactoryQuestion = ({ question, order }: FactoryQuestionProps) => {
+export const FactoryQuestion = ({ order }: FactoryQuestionProps) => {
   const {
     handlerCreateQuestion,
     error: createError,

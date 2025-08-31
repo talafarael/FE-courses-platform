@@ -1,10 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormQuestionSchema } from "../../model/schema";
-import { ICraeteQuestionForm, ICraeteQuestionSelector, ICreateQuestionForm, ICreateQuestionSelect } from "../../model/api-question";
+import { ICraeteQuestionForm, ICreateQuestionForm } from "../../model/api-question";
 import { FactoryInputQuestion } from "../factory-input-question";
 import { Button } from "@/src/shared/ui/button/button";
-import { FactoryInputAnswer } from "../factory-input-answer";
 import { FactoryInputSelect } from "../factory-select";
 
 interface FactoryQuestionProps {
@@ -41,12 +40,8 @@ export const FormQuestion = ({
               register={form.register}
             />
           </div>
-
         }
-
-
         <Button type="submit" label="Створити" />
-
       </form>
     </FormProvider>
   );

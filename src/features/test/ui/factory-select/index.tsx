@@ -1,7 +1,6 @@
 import React from 'react'
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { ICraeteQuestionForm, ICreateQuestionForm } from '../../model/api-question';
-import { InputForm } from '@/src/shared/ui/input-form';
 import { TextArea } from '@/src/shared/ui/text-area';
 
 export interface FactoryInputSelectProps {

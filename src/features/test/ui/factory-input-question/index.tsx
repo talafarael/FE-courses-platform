@@ -1,6 +1,5 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { ICraeteQuestionForm, ICreateQuestionForm, IQuestionType } from "../../model/api-question"; import { factoryInputQuestionData } from "./factory-input-question.data";
-import { InputForm } from "@/src/shared/ui/input-form";
+import { ICraeteQuestionForm, ICreateQuestionForm } from "../../model/api-question"; import { factoryInputQuestionData } from "./factory-input-question.data";
 import { InputOptional } from "@/src/shared/ui/optional-input";
 
 interface FactoryInputQuestionProps {

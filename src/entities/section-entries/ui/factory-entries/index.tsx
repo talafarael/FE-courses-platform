@@ -4,7 +4,6 @@ import { IEntries, IEntriesTest } from "@/src/entities/entries/model/entries";
 import { CreateTest } from "@/src/features/test/ui/create-test";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ListTest } from "../list-test";
 
 export const FactoryEntries = () => {
   const { getCurrentCourse, currentCurse } = useCurrentCourseStore();
@@ -29,7 +28,6 @@ export const FactoryEntries = () => {
     <div className="w-[100%]">
       {currentUnit && currentUnit?.lecture === null && (
         <div>
-          <ListTest test={currentUnit} />
           <CreateTest
             entry={currentUnit as Partial<IEntriesTest>}
             order={currentCurse?.units?.entries?.length ?? 0}

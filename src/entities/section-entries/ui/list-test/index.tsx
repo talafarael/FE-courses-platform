@@ -4,7 +4,7 @@ import React from 'react'
 export interface ListTestProps {
   test: ITest[]
 }
-export const ListTest = ({ test }: ListTestProps) => {
+export const ListTest = ({ }: ListTestProps) => {
   return (
     <div>
 

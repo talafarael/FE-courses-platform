@@ -9,7 +9,7 @@ export interface ChanageEntriesProps {
   unit_id: string;
   order: number;
 }
-export const ChanageEntries = ({ defValue, unit_id, order }) => {
+export const ChanageEntries = ({ defValue, unit_id, order }: ChanageEntriesProps) => {
   const { handlerFactoryEntries, error, loading } = useFactoryEntries();
 
   const [state, setState] = useState<boolean>(false);

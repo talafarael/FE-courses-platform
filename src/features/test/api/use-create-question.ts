@@ -2,7 +2,6 @@ import { useCurrentCourseStore } from "@/src/entities/course/model/use-current-c
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import {
-  ICraeteQuestionForm,
   ICraeteQuestionFormApi,
   ICreateQuestionForm,
   ICreateQuestionSelect,
@@ -13,6 +12,7 @@ import { ITest } from "@/src/entities/test/model/test";
 import { AxiosResponse } from "axios";
 import { IApiResponse } from "@/src/shared/model/api/api-response";
 import { AxiosMutation } from "@/src/shared/api/axios";
+import { transformFormQuestion } from "../utils/transform-form-question";
 interface CreateQuestionProps {
   data: ICreateQuestionForm;
   order: number;
@@ -42,33 +42,19 @@ export const useCreateQuestion = () => {
           },
           form_question: null,
         } as ICreateQuestionSelect
-      } else {
+      } else {//form-question
+        const { questions, answers } = transformFormQuestion(data.question_text)
         body = {
           test_id: id as string,
           order: 3,
           select_question: null,
           form_question: {
-            question_text: "",
+            question_text: questions,
             question_images: {
             },
-            answers: {
-              "0": [
-                Number(data.assessment1),
-                data.answer1
-              ],
-              "1": [
-                Number(data.assessment2),
-                data.answer2,
-              ],
-            }
+            answers
           }
         } as ICreatQuestionForm
-        if (data.answer3 && data.assessment3 !== undefined) {
-          body.form_question.answers["3"] = [Number(data.assessment3), data.answer3];
-        }
-        if (data.answer4 && data.assessment4) {
-          body.form_question.answers["4"] = [Number(data.assessment4), data.answer4];
-        }
       }
       const res: AxiosResponse<IApiResponse<ITest>> =
         await AxiosMutation<ICraeteQuestionFormApi>({
@@ -94,20 +80,4 @@ export const useCreateQuestion = () => {
 };
 
 
-const selectQuestionTransform = (test: string) => {
-  const arr = []
-  const matches = input.match(/\{([^}]+)\}/);
 
-  let formattedText = input;
-  let valuesArray = [];
-
-  if (matches) {
-    const values = matches[1].split(',').map(v => v.trim());
-
-    formattedText = input.replace(/\{[^}]+\}/, '{"0"}');
-
-    const [name, number] = values;
-    valuesArray = [Number(number), name];
-  }
-
-}
