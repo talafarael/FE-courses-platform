@@ -15,8 +15,10 @@ module.exports = {
         purplelight: "#DFD5EC",
         purple: "#65558F",
         darkPurple: "#21005D",
+        questPurple: "#4F378A",
         purpleExtraLight: "#E8DEF8",
         inputBorder: "#6750A4",
+        cardBorder: "#49454F",
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],

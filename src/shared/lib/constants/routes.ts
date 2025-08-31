@@ -6,7 +6,7 @@ export enum ROUTES {
   profile = "/main/profile",
   specialty = "/main/specialty",
   createCourse = "/course/create-course",
-  course = "main/course",
+  course = "/main/course",
+  test = "",
+  redactor = "/redactor",
 }
-
-
