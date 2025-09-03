@@ -1,6 +1,8 @@
 "use client";
 import { useCurrentCourseStore } from "@/src/entities/course/model/use-current-course";
 import { IEntries, IEntriesTest } from "@/src/entities/entries/model/entries";
+import { Lecture } from "@/src/entities/lecture/ui/lecture";
+import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import { CreateTest } from "@/src/features/test/ui/create-test";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -27,13 +29,15 @@ export const FactoryEntries = () => {
   return (
     <div className="w-[100%]">
       {currentUnit && currentUnit?.lecture === null && (
-        <div>
-          <CreateTest
-            entry={currentUnit as Partial<IEntriesTest>}
-            order={currentCurse?.units?.entries?.length ?? 0}
-          />
-        </div>
-
+        <CreateTest
+          entry={currentUnit as Partial<IEntriesTest>}
+          order={currentCurse?.units?.entries?.length ?? 0}
+        />
+      )}
+      {currentUnit && currentUnit?.test === null && (
+        <Lecture
+          order={currentCurse?.units?.entries?.length ?? 0}
+          entry={currentUnit as Partial<LectureSection>} />
       )}
     </div>
   );

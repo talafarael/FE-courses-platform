@@ -1,3 +1,4 @@
+import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import { ITest } from "../../test/model/test";
 
 export interface IEntries {
@@ -9,7 +10,7 @@ export interface IEntries {
   lecture?: {
     id: string;
     name: string;
-    sections: [];
+    sections: LectureSection[];
   };
   test?: {
     id: string;
