@@ -20,7 +20,6 @@ export default function CoursePage() {
       if (id) await getCurrentCourse(id as string);
     })();
   }, [params?.id, getCurrentCourse]);
-
   if (!currentCurse) return "";
   return (
     <div className="w-[90%] min-h-[90vh] bg-purplelight border-[#79747E] border-[1px] flex flex-col items-center rounded-[18px]">
