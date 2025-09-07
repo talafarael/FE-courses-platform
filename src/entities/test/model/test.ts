@@ -22,6 +22,7 @@ interface FormQuestion {
 }
 
 export interface ITest {
+  id?: string
   test_id: string;
   order: number;
   select_question: SelectQuestion;

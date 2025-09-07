@@ -10,13 +10,15 @@ export interface FormLectureSectionProps {
   handlerSend: (data: ICreateLectureSectionForm) => void
   error: string | null,
   loading: boolean
+  label?: string
 }
 export const FormLectureSection = (
   {
     lectureSectionDefaultValue,
     handlerSend,
     error,
-    loading
+    loading,
+    label
   }: FormLectureSectionProps
 ) => {
   const form = useForm<ICreateLectureSectionForm>({
@@ -27,7 +29,7 @@ export const FormLectureSection = (
   return (
     <FormProvider {...form}>
       <form
-        className="w-auto bg-purplelight border-[#49454F] border-[2px] max-w-[800px] p-[30px] rounded-[10px]  flex flex-col items-center justify-center  "
+        className="w-[auto]   max-w-[800px] p-[30px] rounded-[10px]  flex flex-col items-center justify-center  "
         onSubmit={form.handleSubmit((data) => handlerSend(data))}
       >
         <InputsLectureSection
@@ -37,7 +39,7 @@ export const FormLectureSection = (
         {loading && <h1>Завантаження</h1>}
         {error && <h1>{error}</h1>}
         <div>
-          <Button label="Створити" type="submit" />
+          <Button label={label ?? "Створити"} type="submit" />
         </div>
       </form>
     </FormProvider>

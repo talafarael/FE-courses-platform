@@ -40,6 +40,7 @@ export const LectureSectionPage = () => {
     setCurrentLectureSectionIndex((state) => state - 1)
   }
   const handlerNavToChange = (sectionId: string) => {
+    console.log("suka")
     router.push(
       ROUTES.changeLectureSection(
         params?.id ?? "",
@@ -56,7 +57,9 @@ export const LectureSectionPage = () => {
             <h1 className=''>{currentUnit?.lecture?.name}</h1>
             <p>{currentLectureSectionIndex + 1}/{currentUnit?.lecture?.sections.length}</p>
           </div>
-          {user?.has_admin_rights && <Button handlerEvent={() => handlerNavToChange(currentUnit?.lecture?.sections[currentLectureSectionIndex].id ?? "")} label="Змінити" />}
+          {user?.has_admin_rights &&
+            <Button handlerEvent={() => handlerNavToChange(currentUnit?.lecture?.sections[currentLectureSectionIndex].id ?? "")} label="Змінити" />
+          }
 
         </div>
         <div className="w-[70vw] h-[40vh] bg-questPurple flex justify-center items-center rounded-[10px]">

@@ -10,6 +10,6 @@ export const inputsLectureSectionData: IINputDataExtend<keyof ICreateLectureSect
   {
     name: "text",
     placeholder: "Введіть текст",
-    state: "normal-input",
+    state: "large-input",
   }
 ]
