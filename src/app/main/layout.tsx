@@ -1,7 +1,7 @@
 import React from "react";
 import { LeftBar } from "@/src/widgets/left-bar";
 import { Footer } from "@/src/widgets/footer";
-import { UserLoad } from "@/src/entities/user/ui/user-laod";
+import { UserLoad } from "../../entities/user/ui/user-laod";
 export const metadata = {
   title: "next",
 };

@@ -1,15 +1,15 @@
 import { IINputDataExtend } from "@/src/shared/model/input-data";
-import { IFormLectureSection } from "../../model/form-lecture-section";
+import { ICreateLectureSectionForm } from "@/src/features/lecture/type/create-form-lecture-section";
 
-export const inputsLectureSectionData: IINputDataExtend<keyof IFormLectureSection>[] = [
+export const inputsLectureSectionData: IINputDataExtend<keyof ICreateLectureSectionForm>[] = [
   {
     name: "task",
-    placeholder: "Прихований",
+    placeholder: "Введіть завдання",
     state: "normal-input",
   },
   {
     name: "text",
-    placeholder: "Прихований",
+    placeholder: "Введіть текст",
     state: "normal-input",
   }
 ]

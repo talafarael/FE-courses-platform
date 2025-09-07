@@ -1,15 +1,14 @@
 "use client";
 import { useCurrentCourseStore } from "@/src/entities/course/model/use-current-course";
-import { IEntries, IEntriesTest } from "@/src/entities/entries/model/entries";
+import { IEntries, IEntriesLecture, IEntriesTest } from "@/src/entities/entries/model/entries";
 import { Lecture } from "@/src/entities/lecture/ui/lecture";
-import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import { CreateTest } from "@/src/features/test/ui/create-test";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export const FactoryEntries = () => {
   const { getCurrentCourse, currentCurse } = useCurrentCourseStore();
-  const [currentUnit, setCurrentUnit] = useState<IEntries>();
+  const [currentUnit, setCurrentUnit] = useState<IEntriesLecture | IEntriesTest>();
   const params = useParams<{ id: string; "entries-id": string }>();
 
   useEffect(() => {
@@ -18,13 +17,13 @@ export const FactoryEntries = () => {
   useEffect(() => {
     const entriesId = params?.["entries-id"];
     currentCurse?.units?.forEach((unit) => {
-      unit?.entries?.forEach((entry) => {
+      unit?.entries?.forEach((entry: IEntries) => {
+        const ent: IEntriesLecture | IEntriesTest = entry
         if (entry.id === entriesId) {
-          setCurrentUnit(entry);
+          setCurrentUnit(ent);
         }
       });
     });
-    console.log(currentUnit);
   }, [currentCurse]);
   return (
     <div className="w-[100%]">
@@ -37,7 +36,7 @@ export const FactoryEntries = () => {
       {currentUnit && currentUnit?.test === null && (
         <Lecture
           order={currentCurse?.units?.entries?.length ?? 0}
-          entry={currentUnit as Partial<LectureSection>} />
+          entry={currentUnit} />
       )}
     </div>
   );

@@ -19,10 +19,20 @@ export const CardEntry = ({
   const user = useUserStore((state) => state.user);
   const router = useRouter();
   const params = useParams<{ id: string }>();
+  const handlerNavWatch = () => {
+    const id = params?.id;
+    router.push(
+      ROUTES.watchLectureSection(
+        id ?? "",
+        entry.id,
+        entry.lecture?.sections[0].id
+      )
+    );
+  }
   const handlerNavToFactoryTest = () => {
     const id = params?.id;
     router.push(
-      `${ROUTES.course}/${id}/${ROUTES.test}/${entry.id}${ROUTES.redactor}`,
+      ROUTES.redactor(id ?? "", entry.id)
     );
   };
   return (
@@ -60,6 +70,9 @@ export const CardEntry = ({
         )}
       </div>
       <div>
+      </div>
+      <div>
+        <Button handlerEvent={() => handlerNavWatch()} label="watch" />
         <Button handlerEvent={() => handlerNavToFactoryTest()} label="change" />
       </div>
     </div>
