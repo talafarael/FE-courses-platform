@@ -3,17 +3,18 @@ import { useCurrentCourseStore } from '@/src/entities/course/model/use-current-c
 import { IEntries, IEntriesLecture, IEntriesTest } from '@/src/entities/entries/model/entries';
 import { ItemLectureSection } from '@/src/entities/lecture/ui/item-lecture-section';
 import { useUserStore } from '@/src/entities/user/model/userStore';
+import { ROUTES } from '@/src/shared/lib/constants/routes';
 import { Button } from '@/src/shared/ui/button/button';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 export const LectureSectionPage = () => {
-  const { getCurrentCourse, currentCurse } = useCurrentCourseStore();
+  const { currentCurse } = useCurrentCourseStore();
   const [currentUnit, setCurrentUnit] = useState<IEntriesLecture | IEntriesTest>();
   const [currentLectureSectionIndex, setCurrentLectureSectionIndex] = useState<number>(0)
   const params = useParams<{ id: string; "entries-id": string }>();
   const user = useUserStore((state) => state.user);
-
+  const router = useRouter()
   useEffect(() => {
     const entriesId = params?.["entries-id"];
     currentCurse?.units?.forEach((unit) => {
@@ -38,7 +39,15 @@ export const LectureSectionPage = () => {
     ) return
     setCurrentLectureSectionIndex((state) => state - 1)
   }
-  const handlerNavToChange = () => { }
+  const handlerNavToChange = (sectionId: string) => {
+    router.push(
+      ROUTES.changeLectureSection(
+        params?.id ?? "",
+        params?.["entries-id"] ?? "",
+        sectionId
+      )
+    )
+  }
   return (
     <div className='w-[100%] flex justify-center items-center'>
       <div className="w-[83vw] max-w-[1200px] h-[53vh] bg-[#DFD5EC] flex flex-col justify-center items-center rounded-[10px]">
@@ -47,7 +56,7 @@ export const LectureSectionPage = () => {
             <h1 className=''>{currentUnit?.lecture?.name}</h1>
             <p>{currentLectureSectionIndex + 1}/{currentUnit?.lecture?.sections.length}</p>
           </div>
-          {user?.has_admin_rights && <Button handlerEvent={handlerPreviousLectureSection} label="Змінити" />}
+          {user?.has_admin_rights && <Button handlerEvent={() => handlerNavToChange(currentUnit?.lecture?.sections[currentLectureSectionIndex].id ?? "")} label="Змінити" />}
 
         </div>
         <div className="w-[70vw] h-[40vh] bg-questPurple flex justify-center items-center rounded-[10px]">
