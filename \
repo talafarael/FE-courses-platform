@@ -15,7 +15,7 @@ export const ItemLectureSection = ({
       flex-row
       items-center h-[100%]"
     >
-      <div className="w-[140px] mt-[50px] h-[100%] flex justify-center">
+      <div className="w-[140px] h-[100%]">
         {lectureSection?.rounded_image && (
           <Image
             src={lectureSection?.rounded_image}
@@ -27,9 +27,8 @@ export const ItemLectureSection = ({
           />
         )}
       </div>
-      <div className="w-[80%] h-[90%]">
-        <h1 className="text-[20px] text-[white]">{lectureSection?.task}</h1>
-        <p className="text-[white] text-[14px]">{lectureSection?.text}</p>
+      <div className="w-[auto]">
+        <h1>{lectureSection?.text}</h1>
       </div>
     </div>
   );

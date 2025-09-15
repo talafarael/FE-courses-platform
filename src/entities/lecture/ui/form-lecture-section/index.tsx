@@ -1,26 +1,24 @@
-import React from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod';
-import { ICreateLectureSectionForm } from '@/src/features/lecture/type/create-form-lecture-section';
-import { FormLectureSectionSchema } from '@/src/features/lecture/model/schema';
-import { InputsLectureSection } from '../inputs-lecture-serction';
-import { Button } from '@/src/shared/ui/button/button';
+import React from "react";
+import { FormProvider, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ICreateLectureSectionForm } from "@/src/features/lecture/type/create-form-lecture-section";
+import { FormLectureSectionSchema } from "@/src/features/lecture/model/schema";
+import { InputsLectureSection } from "../inputs-lecture-serction";
+import { Button } from "@/src/shared/ui/button/button";
 export interface FormLectureSectionProps {
-  lectureSectionDefaultValue: ICreateLectureSectionForm
-  handlerSend: (data: ICreateLectureSectionForm) => void
-  error: string | null,
-  loading: boolean
-  label?: string
+  lectureSectionDefaultValue: ICreateLectureSectionForm;
+  handlerSend: (data: ICreateLectureSectionForm) => void;
+  error: string | null;
+  loading: boolean;
+  label?: string;
 }
-export const FormLectureSection = (
-  {
-    lectureSectionDefaultValue,
-    handlerSend,
-    error,
-    loading,
-    label
-  }: FormLectureSectionProps
-) => {
+export const FormLectureSection = ({
+  lectureSectionDefaultValue,
+  handlerSend,
+  error,
+  loading,
+  label,
+}: FormLectureSectionProps) => {
   const form = useForm<ICreateLectureSectionForm>({
     resolver: zodResolver(FormLectureSectionSchema),
     defaultValues: lectureSectionDefaultValue,
@@ -38,10 +36,10 @@ export const FormLectureSection = (
         />
         {loading && <h1>Завантаження</h1>}
         {error && <h1>{error}</h1>}
-        <div>
+        <div className="h-[40px] mt-[20px]">
           <Button label={label ?? "Створити"} type="submit" />
         </div>
       </form>
     </FormProvider>
-  )
-}
+  );
+};

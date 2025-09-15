@@ -5,7 +5,9 @@ export const loadImageMutation = async (
   data: FormData,
 ): Promise<AxiosResponse> => {
   const axios = createApi();
-  return await axios.post("/admin/lectures/sections/upload-media", {
-    data,
+  return await axios.post("/admin/lectures/sections/upload-media", data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
   });
 };
