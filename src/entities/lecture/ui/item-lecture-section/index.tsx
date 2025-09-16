@@ -27,9 +27,25 @@ export const ItemLectureSection = ({
           />
         )}
       </div>
-      <div className="w-[80%] h-[90%]">
-        <h1 className="text-[20px] text-[white]">{lectureSection?.task}</h1>
-        <p className="text-[white] text-[14px]">{lectureSection?.text}</p>
+      <div className="w-[75%] h-[70%] flex flex-col justify-between">
+        <div>
+          <h1 className="text-[32px] text-[white]">{lectureSection?.task}</h1>
+          <p className="text-[white] text-[15px]">{lectureSection?.text}</p>
+        </div>
+
+        <div className="flex gap-[20px]">
+          {lectureSection?.images &&
+            Object.entries(lectureSection?.images).map(([key, url], index) => (
+              <Image
+                key={`${key}-${index}`}
+                src={url}
+                alt={key}
+                width={120}
+                height={120}
+                className="w-[120px] h-[120px]   object-cover "
+              />
+            ))}
+        </div>
       </div>
     </div>
   );

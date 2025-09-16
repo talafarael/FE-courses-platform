@@ -1,25 +1,25 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import { LectureSection } from "../../model/lecture-section.model";
 import { ICreateLectureSectionForm } from "../../type/create-form-lecture-section";
 import { useChangeLectureSection } from "../../hook/use-change-lecture-section";
 import { useFindCurrentSection } from "@/src/entities/lecture/hook/use-find-current-lecture-section";
 import { FormLectureSection } from "@/src/entities/lecture/ui/form-lecture-section";
 import { guardLecture } from "@/src/entities/lecture/utils/guard-type-section";
-import Image from "next/image";
 import { LoadImageLecture } from "../load-image-lecture-section";
 import { UploadRoundImage } from "../upload-round-image";
+import { useParams } from "next/navigation";
 export interface ChangeLectureSectionProps {
   sectionLecture?: LectureSection;
 }
 
 export const ChangeLectureSection = () => {
   const { changeLectureSection, loading, error } = useChangeLectureSection();
+  const params = useParams<{ id: string; "section-id": string }>();
   const { currentSection } = useFindCurrentSection();
-  const ref = useRef<HTMLInputElement | null>(null);
-  const handlerSend = (data: ICreateLectureSectionForm) => {};
-  const targgetInput = () => {
-    ref.current?.click();
+  const handlerSubmit = (data: ICreateLectureSectionForm) => {
+    if (!params?.["section-id"] || !params?.id) return;
+    changeLectureSection(data, params["section-id"]);
   };
   return (
     <div className="w-[83vw] max-w-[1200px] h-[53vh] bg-[#DFD5EC] flex flex-col justify-center items-center rounded-[10px]">
@@ -31,7 +31,7 @@ export const ChangeLectureSection = () => {
               <FormLectureSection
                 error={error}
                 loading={loading}
-                handlerSend={handlerSend}
+                handlerSend={handlerSubmit}
                 lectureSectionDefaultValue={currentSection}
                 label="Змінити"
               />

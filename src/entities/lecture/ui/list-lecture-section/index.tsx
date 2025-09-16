@@ -57,43 +57,41 @@ export const ListLectureSection = () => {
   };
 
   return (
-    <div className="w-[100%] flex justify-center items-center">
-      <div className="w-[85vw] max-w-[1200px] h-[60vh] bg-[#DFD5EC] flex flex-col justify-center items-center rounded-[10px]">
-        <div className="w-[90%] max-w-[1200px] flex justify-between">
-          <div>
-            <h1 className="">{currentUnit?.lecture?.name}</h1>
-            <p>
-              {currentLectureSectionIndex + 1}/
-              {currentUnit?.lecture?.sections.length}
-            </p>
-          </div>
-          {user?.has_admin_rights && (
-            <Button
-              handlerEvent={() =>
-                handlerNavToChange(
-                  currentUnit?.lecture?.sections[currentLectureSectionIndex]
-                    .id ?? "",
-                )
-              }
-              label="Змінити"
-            />
-          )}
+    <div className="w-[100%] h-[100%]">
+      <div className="w-[90%] max-w-[1200px] flex justify-between">
+        <div>
+          <h1 className="">{currentUnit?.lecture?.name}</h1>
+          <p>
+            {currentLectureSectionIndex + 1}/
+            {currentUnit?.lecture?.sections.length}
+          </p>
         </div>
-        <div className="w-[70vw] h-[45vh] bg-questPurple flex justify-center items-center rounded-[10px]">
-          <ItemLectureSection
-            lectureSection={
-              currentUnit?.lecture?.sections[currentLectureSectionIndex]
-            }
-          />
-        </div>
-        <div className="w-[70vw] h-[60px] max-w-[1200px] flex items-center justify-between">
+        {user?.has_admin_rights && (
           <Button
-            style="h-[40px]"
-            handlerEvent={handlerPreviousLectureSection}
-            label="Назад"
+            handlerEvent={() =>
+              handlerNavToChange(
+                currentUnit?.lecture?.sections[currentLectureSectionIndex].id ??
+                  "",
+              )
+            }
+            label="Змінити"
           />
-          <Button handlerEvent={handlerNextLectureSection} label="Впeред" />
-        </div>
+        )}
+      </div>
+      <div className="w-[70vw] h-[45vh] bg-questPurple flex justify-center items-center rounded-[10px]">
+        <ItemLectureSection
+          lectureSection={
+            currentUnit?.lecture?.sections[currentLectureSectionIndex]
+          }
+        />
+      </div>
+      <div className="w-[70vw] h-[60px] max-w-[1200px] flex items-center justify-between">
+        <Button
+          style="h-[40px]"
+          handlerEvent={handlerPreviousLectureSection}
+          label="Назад"
+        />
+        <Button handlerEvent={handlerNextLectureSection} label="Впeред" />
       </div>
     </div>
   );

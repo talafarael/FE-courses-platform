@@ -24,18 +24,21 @@ export const LoadImageLecture = ({ img }: LoadImageLectureProps) => {
   const handlerSaveImg = async () => {
     if (!image || !params?.["section-id"]) return;
     await uploadImg(image, params?.["section-id"]);
+    setImage(null)
   };
   const targgetInput = () => {
     ref.current?.click();
   };
   return (
-    <div>
+    <div className="flex gap-[20px]">
       {Object.entries(img).map(([key, url], index) => (
         <Image
           key={`${key}-${index}`}
           src={url}
           alt={key}
-          className="w-32 h-32 object-cover "
+          width={100}
+          height={100}
+          className="w-[100px] h-[100px]   object-cover "
         />
       ))}
       <div className="w-[100px] h-[100px]">
@@ -47,7 +50,7 @@ export const LoadImageLecture = ({ img }: LoadImageLectureProps) => {
         />
 
         {image ? (
-          <div className=" flex  justify-center items-center ">
+          <div className="flex w-[200px]  justify-center items-center ">
             <Image
               onClick={targgetInput}
               src={URL.createObjectURL(image)}

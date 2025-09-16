@@ -7,8 +7,8 @@ export const changeLectureSectionMutation = async (
   lecture_id: string,
 ): Promise<AxiosResponse> => {
   const axios = createApi();
-  return await axios.post("/admin/lectures/sections/create", {
+  return await axios.put("/admin/lectures/sections/edit", {
     lecture_id,
-    ...data
+    ...data,
   });
-}
+};

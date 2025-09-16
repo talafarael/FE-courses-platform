@@ -25,15 +25,13 @@ export const CardEntry = ({
       ROUTES.watchLectureSection(
         id ?? "",
         entry.id,
-        entry.lecture?.sections[0].id
-      )
+        entry.lecture?.sections[0].id,
+      ),
     );
-  }
+  };
   const handlerNavToFactoryTest = () => {
     const id = params?.id;
-    router.push(
-      ROUTES.redactor(id ?? "", entry.id)
-    );
+    router.push(ROUTES.redactor(id ?? "", entry.id));
   };
   return (
     <div className="min-h-[50px]  pt-[8px] pb-[8px] transition-all duration-300 ease-in-out   bg-purple rounded-[30px] w-[100%] flex flex-col  text-white">
@@ -69,11 +67,15 @@ export const CardEntry = ({
           </div>
         )}
       </div>
-      <div>
-      </div>
+      <div></div>
       <div>
         <Button handlerEvent={() => handlerNavWatch()} label="watch" />
-        <Button handlerEvent={() => handlerNavToFactoryTest()} label="change" />
+        {user?.has_admin_rights && (
+          <Button
+            handlerEvent={() => handlerNavToFactoryTest()}
+            label="change"
+          />
+        )}
       </div>
     </div>
   );

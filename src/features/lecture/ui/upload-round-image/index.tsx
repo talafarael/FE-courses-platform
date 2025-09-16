@@ -12,7 +12,6 @@ export const UploadRoundImage = ({ img }: UploadRoundImageProps) => {
   const ref = useRef<HTMLInputElement | null>(null);
   const [image, setImage] = useState<File | null>(null);
   const params = useParams<{ "section-id": string }>();
-
   const handleSetImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
@@ -24,11 +23,11 @@ export const UploadRoundImage = ({ img }: UploadRoundImageProps) => {
   const handlerSubmit = async () => {
     if (!image || !params?.["section-id"]) return;
     await uploadRoundImg(image, params?.["section-id"]);
+    if (!error) setImage(null);
   };
   const targgetInput = () => {
     ref.current?.click();
   };
-
   return (
     <div className="h-[100%] absolute top-[20px] left-[20px]">
       <div className="w-[100px] h-[100px]">
@@ -42,7 +41,7 @@ export const UploadRoundImage = ({ img }: UploadRoundImageProps) => {
         {image || img ? (
           <Image
             onClick={targgetInput}
-            src={img ?? URL.createObjectURL(image as File)}
+            src={img ? img : URL.createObjectURL(image as File)}
             alt="preview"
             width={100}
             height={100}
