@@ -1,5 +1,9 @@
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { ICraeteQuestionForm, ICreateQuestionForm } from "../../model/api-question"; import { factoryInputQuestionData } from "./factory-input-question.data";
+import {
+  ICraeteQuestionForm,
+  ICreateQuestionForm,
+} from "../../model/api-question";
+import { factoryInputQuestionData } from "./factory-input-question.data";
 import { InputOptional } from "@/src/shared/ui/optional-input";
 
 interface FactoryInputQuestionProps {
@@ -12,15 +16,11 @@ export const FactoryInputQuestion = ({
   errors,
 }: FactoryInputQuestionProps) => {
   return (
-    <div className="flex flex-row-reverse justify-end" >
+    <div className="flex flex-row-reverse justify-end">
       {factoryInputQuestionData?.map((elem) => {
-
         if (elem.state === "optional-input") {
           return (
-            <div
-              key={elem.name}
-              className="h-[50px]"
-            >
+            <div key={elem.name} className="h-[50px]">
               <InputOptional<ICreateQuestionForm>
                 placeholder={elem.name}
                 name={elem.name}

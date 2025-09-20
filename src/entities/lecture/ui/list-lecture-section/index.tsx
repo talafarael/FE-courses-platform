@@ -57,7 +57,7 @@ export const ListLectureSection = () => {
   };
 
   return (
-    <div className="w-[100%] h-[100%]">
+    <div className="w-[100%] h-[100%] flex justify-center items-center flex-col">
       <div className="w-[90%] max-w-[1200px] flex justify-between">
         <div>
           <h1 className="">{currentUnit?.lecture?.name}</h1>

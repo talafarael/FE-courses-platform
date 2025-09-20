@@ -9,7 +9,11 @@ export interface ChanageEntriesProps {
   unit_id: string;
   order: number;
 }
-export const ChanageEntries = ({ defValue, unit_id, order }: ChanageEntriesProps) => {
+export const ChanageEntries = ({
+  defValue,
+  unit_id,
+  order,
+}: ChanageEntriesProps) => {
   const { handlerFactoryEntries, error, loading } = useFactoryEntries();
 
   const [state, setState] = useState<boolean>(false);
@@ -29,7 +33,7 @@ export const ChanageEntries = ({ defValue, unit_id, order }: ChanageEntriesProps
   return (
     <div>
       {!state && <Button label="" handlerEvent={handlerToggleState} />}
-
+      afa
       {state && (
         <FromEntries
           handlerSend={handlerSend}

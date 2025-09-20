@@ -1,6 +1,7 @@
 import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import Image from "next/image";
 import React from "react";
+import { LectureTemplate } from "../lecture-template";
 
 export interface ItemLectureSectionProps {
   lectureSection?: LectureSection;

@@ -31,30 +31,37 @@ export const useCreateQuestion = () => {
     try {
       let body: ICraeteQuestionFormApi;
       const id = params?.["entries-id"];
+      console.log("lox!");
+
       if (!id) return;
+      console.log("lox");
       if (data.type === "select-question") {
+        //not work now
         body = {
           test_id: id as string,
           order: order,
           select_question: {
             question_text: data.question_text,
-            question_images: {}
+            question_images: {},
           },
           form_question: null,
-        } as ICreateQuestionSelect
-      } else {//form-question
-        const { questions, answers } = transformFormQuestion(data.question_text)
+        } as ICreateQuestionSelect;
+      } else {
+        //form-question
+        const { questions, answers } = transformFormQuestion(
+          data.question_text,
+        );
+        console.log({ questions, answers });
         body = {
           test_id: id as string,
           order: 3,
           select_question: null,
           form_question: {
             question_text: questions,
-            question_images: {
-            },
-            answers
-          }
-        } as ICreatQuestionForm
+            question_images: {},
+            answers,
+          },
+        } as ICreatQuestionForm;
       }
       const res: AxiosResponse<IApiResponse<ITest>> =
         await AxiosMutation<ICraeteQuestionFormApi>({
@@ -78,6 +85,3 @@ export const useCreateQuestion = () => {
   };
   return { handlerCreateQuestion, error, loading };
 };
-
-
-

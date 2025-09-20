@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const FormQuestionSchema = z.union([
+export const FormQuestionSchema = z.discriminatedUnion("type", [
   z.object({
     type: z.literal("form-question"),
     question_text: z.string().min(4, "Ім’я є обов’язковим"),
@@ -16,6 +16,5 @@ export const FormQuestionSchema = z.union([
   z.object({
     type: z.literal("select-question"),
     question_text: z.string().min(4, "Ім’я є обов’язковим"),
-    assessment1: z.string(),
   }),
 ]);

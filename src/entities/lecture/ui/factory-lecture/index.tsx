@@ -15,6 +15,9 @@ export const FactoryLecture = ({ entry }: LectureProps) => {
     : params?.["section-id"];
 
   return (
-    <div>{sectionId ? <ChangeLectureSection /> : <CreateLectionSection />}</div>
+    <div>
+      {" "}
+      {sectionId ? <ChangeLectureSection /> : <CreateLectionSection />}
+    </div>
   );
 };

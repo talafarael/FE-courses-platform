@@ -23,6 +23,7 @@ export const ChangeLectureSection = () => {
   };
   return (
     <div className="w-[83vw] max-w-[1200px] h-[53vh] bg-[#DFD5EC] flex flex-col justify-center items-center rounded-[10px]">
+      af
       <div className="w-[70vw]  max-w-[1200px] bg flex justify-center h-[90%] ">
         {currentSection && guardLecture(currentSection) && (
           <div className="w-[90%] relative bg-questPurple flex flex-col justify-center items-center rounded-[10px]">
