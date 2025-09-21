@@ -33,7 +33,7 @@ export const useCurrentCourseStore = create<ICurrentCourseStore>()(
       set(() => ({ loading: true }));
       try {
         const res: AxiosResponse<IApiResponse<IFullCourse>> = await AxiosQuery(
-          `courses/get?id=${id}`,
+          `admin/courses/get-full?id=${id}`,
         );
         if (res?.data?.data)
           set({

@@ -31,12 +31,9 @@ export const useCreateQuestion = () => {
     try {
       let body: ICraeteQuestionFormApi;
       const id = params?.["entries-id"];
-      console.log("lox!");
 
       if (!id) return;
-      console.log("lox");
       if (data.type === "select-question") {
-        //not work now
         body = {
           test_id: id as string,
           order: order,
@@ -47,7 +44,7 @@ export const useCreateQuestion = () => {
           form_question: null,
         } as ICreateQuestionSelect;
       } else {
-        //form-question
+        //form question
         const { questions, answers } = transformFormQuestion(
           data.question_text,
         );

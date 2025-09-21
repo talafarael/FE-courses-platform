@@ -15,12 +15,10 @@ export const FactoryQuestion = ({ order }: FactoryQuestionProps) => {
     loading: createLoading,
   } = useCreateQuestion();
   const handlerSubmit = async (data: ICreateQuestionForm) => {
-    console.log("lox!");
-
     await handlerCreateQuestion({ data, order });
   };
   return (
-    <div className="w-[80vw] h-[50vh] bg-questPurple flex justify-center items-center rounded-[10px]">
+    <div className="w-[80vw] max-w-[1100px] h-[50vh] bg-questPurple flex justify-center items-center rounded-[10px]">
       <FormQuestion
         handlerSubmit={handlerSubmit}
         error={createError}

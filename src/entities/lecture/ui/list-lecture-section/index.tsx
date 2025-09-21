@@ -1,38 +1,25 @@
 "use client";
-import { useCurrentCourseStore } from "@/src/entities/course/model/use-current-course";
-import {
-  IEntries,
-  IEntriesLecture,
-  IEntriesTest,
-} from "@/src/entities/entries/model/entries";
+import { IEntriesLecture } from "@/src/entities/entries/model/entries";
 import { ItemLectureSection } from "@/src/entities/lecture/ui/item-lecture-section";
 import { useUserStore } from "@/src/entities/user/model/userStore";
+import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import { ROUTES } from "@/src/shared/lib/constants/routes";
 import { Button } from "@/src/shared/ui/button/button";
 import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-export const ListLectureSection = () => {
-  const { currentCurse } = useCurrentCourseStore();
-  const [currentUnit, setCurrentUnit] = useState<
-    IEntriesLecture | IEntriesTest
-  >();
+export interface ListLectureSectionProps {
+  currentSection: LectureSection;
+  currentUnit: IEntriesLecture;
+}
+export const ListLectureSection = ({
+  currentUnit,
+}: ListLectureSectionProps) => {
   const [currentLectureSectionIndex, setCurrentLectureSectionIndex] =
     useState<number>(0);
   const params = useParams<{ id: string; "entries-id": string }>();
   const user = useUserStore((state) => state.user);
   const router = useRouter();
-  useEffect(() => {
-    const entriesId = params?.["entries-id"];
-    currentCurse?.units?.forEach((unit) => {
-      unit?.entries?.forEach((entry: IEntries) => {
-        const ent: IEntriesLecture | IEntriesTest = entry;
-        if (entry.id === entriesId) {
-          setCurrentUnit(ent);
-        }
-      });
-    });
-  }, [currentCurse]);
   const handlerNextLectureSection = () => {
     if (
       currentUnit?.lecture &&
@@ -46,7 +33,6 @@ export const ListLectureSection = () => {
     setCurrentLectureSectionIndex((state) => state - 1);
   };
   const handlerNavToChange = (sectionId: string) => {
-    console.log("suka");
     router.push(
       ROUTES.changeLectureSection(
         params?.id ?? "",

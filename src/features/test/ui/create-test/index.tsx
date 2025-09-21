@@ -1,15 +1,15 @@
 import type { IEntriesTest } from "@/src/entities/entries/model/entries";
 import { FactoryQuestion } from "../factory-question";
+import { LectureTemplate } from "@/src/entities/lecture/ui/lecture-template";
 
 export interface CreateTestProps {
   entry: Partial<IEntriesTest>;
   order: number;
 }
 export const CreateTest = ({ order }: CreateTestProps) => {
-
   return (
-    <div className="w-[100%] h-[100vh] flex items-center justify-center">
+    <LectureTemplate>
       <FactoryQuestion order={order} />
-    </div>
+    </LectureTemplate>
   );
 };

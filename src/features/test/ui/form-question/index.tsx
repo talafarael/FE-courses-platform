@@ -1,13 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, UseFormRegister } from "react-hook-form";
 import { FormQuestionSchema } from "../../model/schema";
 import {
   ICraeteQuestionForm,
+  ICraeteQuestionSelector,
   ICreateQuestionForm,
 } from "../../model/api-question";
 import { FactoryInputQuestion } from "../factory-input-question";
 import { Button } from "@/src/shared/ui/button/button";
 import { FactoryInputSelect } from "../factory-select";
+import { InputForm } from "@/src/shared/ui/input-form";
 
 interface FactoryQuestionProps {
   question?: ICraeteQuestionForm;
@@ -32,19 +34,36 @@ export const FormQuestion = ({
         })}
         className="w-[70vw] "
       >
-        <h1 className="text-[white] text-[14px]">
+        <h1 className="text-[white] text-[18px]">
           Створення завдання для курсу
         </h1>
         <FactoryInputQuestion
           errors={form.formState.errors}
           register={form.register}
         />
-        {form.watch("type") === "form-question" && (
+        {form.watch("type") === "form-question" ? (
           <div className="mt-[20px]">
             <p>{`Example: Прізвище, ім’я: {Клиймович Кирило, 10}`}</p>
             <FactoryInputSelect
               errors={form.formState.errors}
               register={form.register}
+            />
+          </div>
+        ) : (
+          <div className="mt-[15px]">
+            <InputForm<ICraeteQuestionSelector>
+              type="text"
+              placeholder="question-text"
+              name="question_text"
+              styleError="!text-[white]"
+              register={
+                form.register as UseFormRegister<ICraeteQuestionSelector>
+              }
+              error={
+                form.formState.errors
+                  ? form.formState.errors["question_text"]
+                  : undefined
+              }
             />
           </div>
         )}
