@@ -3,7 +3,6 @@ import { IFromEntries } from "../../model/form-entries";
 import { inputEntriesData } from "./inputs-entries.data";
 import { InputForm } from "@/src/shared/ui/input-form";
 import { InputOptional } from "@/src/shared/ui/optional-input";
-import { Button } from "@/src/shared/ui/button/button";
 
 export interface InputEntriesProps {
   register: UseFormRegister<IFromEntries>;
@@ -11,7 +10,7 @@ export interface InputEntriesProps {
 }
 export const InputEntries = ({ register, errors }: InputEntriesProps) => {
   return (
-    <div>
+    <div className="h-[90px] flex flex-col justify-between">
       {inputEntriesData.map((elem) => {
         if (elem.state === "normal-input") {
           return (
@@ -41,7 +40,6 @@ export const InputEntries = ({ register, errors }: InputEntriesProps) => {
         }
         return null;
       })}
-      <Button label="Створити" type="submit" />
     </div>
   );
 };
