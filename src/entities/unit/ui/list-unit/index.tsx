@@ -1,21 +1,15 @@
-"use client";
-import { useEffect, useState } from "react";
 import { IUnit } from "../../model/unit";
-import { CardUnit } from "../card-unit";
+import { UnitCard } from "../unit-card";
 
 export interface ListUnitsProps {
-	units: IUnit[];
+  units: IUnit[];
 }
-export const ListUnits = ({ units }: ListUnitsProps) => {
-	const [orderUnit, setOrderUnit] = useState<IUnit[]>(units);
-	useEffect(() => {
-		setOrderUnit(units);
-	}, [units]);
-	return (
-		<div className="flex mt-[28px] flex-col w-[100%] items-center gap-[28px]">
-			{orderUnit.slice().map((elem) => (
-				<CardUnit unit={elem} key={elem.id} />
-			))}
-		</div>
-	);
+export const ListUnit = ({ units }: ListUnitsProps) => {
+  return (
+    <div className="w-[100%]">
+      {units.map((unit) => (
+        <UnitCard key={unit.id} unit={unit} />
+      ))}
+    </div>
+  );
 };

@@ -12,6 +12,7 @@ export interface ICurrentCourseStore {
   error: string | undefined;
   loading: boolean;
   getCurrentCourse: (id: string) => Promise<void>;
+  getFullCurrentCourse: (id: string) => Promise<void>;
 }
 
 const localMiddlewares = (f: StateCreator<ICurrentCourseStore>) =>
@@ -27,13 +28,36 @@ export const useCurrentCourseStore = create<ICurrentCourseStore>()(
     currentCurse: undefined,
     loading: false,
     error: undefined,
-    getCurrentCourse: async (id: string) => {
+    getFullCurrentCourse: async (id: string) => {
       set(() => ({ error: undefined }));
 
       set(() => ({ loading: true }));
       try {
         const res: AxiosResponse<IApiResponse<IFullCourse>> = await AxiosQuery(
           `admin/courses/get-full?id=${id}`,
+        );
+        if (res?.data?.data)
+          set({
+            loading: false,
+            currentCurse: res.data.data,
+            error: undefined,
+          });
+      } catch (e) {
+        const errMessagehandlerError = handlerError(e);
+        set({
+          loading: false,
+          currentCurse: undefined,
+          error: errMessagehandlerError,
+        });
+      }
+    },
+    getCurrentCourse: async (id: string) => {
+      set(() => ({ error: undefined }));
+
+      set(() => ({ loading: true }));
+      try {
+        const res: AxiosResponse<IApiResponse<IFullCourse>> = await AxiosQuery(
+          `courses/get?id=${id}`,
         );
         if (res?.data?.data)
           set({

@@ -1,4 +1,4 @@
-import { GetCurrentCourse } from "@/src/entities/course/ui/get-current-course";
+import { GetFullCurrentCourse } from "@/src/entities/course/ui/get-current-course";
 
 export default function RootLayout({
   children,
@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <div className="w-[100%]">
-      <GetCurrentCourse />
+      <GetFullCurrentCourse />
       {children}
     </div>
   );

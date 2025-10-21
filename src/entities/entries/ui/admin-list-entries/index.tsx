@@ -4,10 +4,10 @@ import { IEntries } from "../../model/entries";
 import { CardEntry } from "../card-entry";
 import { Button } from "@/src/shared/ui/button/button";
 
-export interface ListEntriesProps {
+export interface AdminListEntriesProps {
   entries: IEntries[];
 }
-export const ListEntries = ({ entries }: ListEntriesProps) => {
+export const AdminListEntries = ({ entries }: AdminListEntriesProps) => {
   const [orderChange, setOrderChange] = useState<boolean>(false);
   const [entriesOrder, setEntriesOrder] = useState<IEntries[]>(
     [...entries].sort((a, b) => a.order - b.order),

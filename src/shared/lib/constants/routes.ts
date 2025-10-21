@@ -19,9 +19,9 @@ export const ROUTES = {
   course: "/main/course",
   test: "",
   redactor: (id: string, entriesId: string, sectionId?: string) =>
-    `/main/course/${id}/${entriesId}/redactor/${sectionId ?? ""}`,
+    `/main/admin-course/${id}/${entriesId}/redactor/${sectionId ?? ""}`,
   watchLectureSection: (id: string, entriesId: string, sectionId?: string) =>
-    `/main/course/${id}/${entriesId}/watch/section/${sectionId ?? ""}`,
+    `/main/admin-course/${id}/${entriesId}/watch/section/${sectionId ?? ""}`,
   changeLectureSection: (id: string, entriesId: string, sectionId: string) =>
-    `/main/course/${id}/${entriesId}/redactor/${sectionId}/change`,
+    `/main/admin-course/${id}/${entriesId}/redactor/${sectionId}/change`,
 };

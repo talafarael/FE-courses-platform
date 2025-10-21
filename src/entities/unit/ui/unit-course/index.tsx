@@ -1,6 +1,6 @@
 import { Button } from "@/src/shared/ui/button/button";
 import { IUnit } from "../../model/unit";
-import { ListUnits } from "../list-unit";
+import { AdminListUnits } from "../admin-list-unit";
 
 export interface UnitCourseProps {
   admin: boolean | undefined;
@@ -14,7 +14,7 @@ export const UnitCourse = ({
 }: UnitCourseProps) => {
   return (
     <div className="w-[100%] flex flex-col items-center">
-      <ListUnits units={unit} />
+      <AdminListUnits units={unit} />
 
       {admin && (
         <div className="w-[90%] justify-center items-center mt-[20px]">
