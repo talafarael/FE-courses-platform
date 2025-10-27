@@ -3,10 +3,10 @@ import { useFindCurrentSection } from "@/src/entities/lecture/hook/use-find-curr
 import { LectureTemplate } from "@/src/entities/lecture/ui/lecture-template";
 import { ListTestSection } from "@/src/entities/test/ui/list-test-section";
 
-export interface TestPageProps {
+export interface AdminTestPageProps {
   currentUnit: IEntriesTest;
 }
-export const TestPage = ({ currentUnit }: TestPageProps) => {
+export const AdminTestPage = ({ currentUnit }: AdminTestPageProps) => {
   return (
     <LectureTemplate style="!min-h-[70vh] !h-[auto]">
       <div>

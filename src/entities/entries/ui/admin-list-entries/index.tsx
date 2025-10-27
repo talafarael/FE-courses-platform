@@ -1,8 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { IEntries } from "../../model/entries";
-import { CardEntry } from "../card-entry";
 import { Button } from "@/src/shared/ui/button/button";
+import { AdminCardEntry } from "../admin-card-entry";
 
 export interface AdminListEntriesProps {
   entries: IEntries[];
@@ -35,7 +35,7 @@ export const AdminListEntries = ({ entries }: AdminListEntriesProps) => {
 
       const currentOrder = entriesCopy[index].order;
       entriesCopy[index].order = entriesCopy[index - 1].order;
-      entriesCopy[index - 1].order = currentOrder;
+      entriesCopy[index - 2].order = currentOrder;
 
       entriesCopy.sort((a, b) => a.order - b.order);
       console.log(normalizeOrder(entriesCopy));
@@ -63,7 +63,7 @@ export const AdminListEntries = ({ entries }: AdminListEntriesProps) => {
   return (
     <div className="w-[95%] flex flex-col transition-all duration-300 ease-in-out  gap-[8px]">
       {entriesOrder.map((elem) => (
-        <CardEntry
+        <AdminCardEntry
           key={elem.id}
           handlerRiseUp={handlerRiseUp}
           handlerFallDown={handlerFallDown}

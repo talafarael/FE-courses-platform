@@ -7,7 +7,7 @@ export interface LectureSectionPageProps {
   currentSection: LectureSection;
   currentUnit: IEntriesLecture;
 }
-export const LectureSectionPage = (data: LectureSectionPageProps) => {
+export const AdminLectureSectionPage = (data: LectureSectionPageProps) => {
   return (
     <LectureTemplate>
       <ListLectureSection {...data} />

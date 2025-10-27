@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         milk: "#f1eef4",
         pinklight: "#FEF7FF",
-        pinky:"#EADDFF",
+        pinky: "#EADDFF",
         pink: "#E8DEF8",
         purplelight: "#DFD5EC",
         purple: "#65558F",
@@ -22,6 +22,8 @@ module.exports = {
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
+        poppins: ["Poppins", "sans-serif"],
       },
       screens: {
         "max-lg": { max: "850px" },
