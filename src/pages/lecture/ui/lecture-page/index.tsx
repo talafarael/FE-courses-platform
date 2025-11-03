@@ -1,16 +1,16 @@
 import { IEntriesLecture } from "@/src/entities/entries/model/entries";
-import { AdminListLectureSection } from "@/src/entities/lecture/ui/admin-list-lecture-section";
 import { LectureTemplate } from "@/src/entities/lecture/ui/lecture-template";
+import { ListLectureSection } from "@/src/entities/lecture/ui/list-lecture-section";
 import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 
-export interface AdminLectureSectionPageProps {
+export interface LectureSectionPageProps {
   currentSection: LectureSection;
   currentUnit: IEntriesLecture;
 }
-export const AdminLectureSectionPage = (data: AdminLectureSectionPageProps) => {
+export const LecturePage = (data: LectureSectionPageProps) => {
   return (
     <LectureTemplate>
-      <AdminListLectureSection {...data} />
+      <ListLectureSection {...data} />
     </LectureTemplate>
   );
 };

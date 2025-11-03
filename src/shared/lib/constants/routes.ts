@@ -26,9 +26,8 @@ export const ROUTES = {
     sectionId?: string,
   ) =>
     `/main/admin-course/${id}/${entriesId}/admin-watch/section/${sectionId ?? ""}`,
-
   watchLectureSection: (id: string, entriesId: string, sectionId?: string) =>
-    `/main/admin-course/${id}/${entriesId}/watch/section/${sectionId ?? ""}`,
+    `/main/course/${id}/${entriesId}/watch/section/${sectionId ?? ""}`,
   changeLectureSection: (id: string, entriesId: string, sectionId: string) =>
     `/main/admin-course/${id}/${entriesId}/redactor/${sectionId}/change`,
 };

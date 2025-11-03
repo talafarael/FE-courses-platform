@@ -1,15 +1,15 @@
 "use client";
 import { useFindCurrentSection } from "@/src/entities/lecture/hook/use-find-current-lecture-section";
-import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
-import { AdminLectureSectionPage } from "../../admin-lecture/ui/admin-lecture-section";
 import { AdminTestPage } from "../../admin-test/ui/page";
+import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
+import { LecturePage } from "../../lecture/ui/lecture-page";
 
-export const AdminSectionPage = () => {
+export const SectionPage = () => {
   const { currentUnit, currentSection } = useFindCurrentSection();
   return (
     <>
       {currentUnit?.lecture && (
-        <AdminLectureSectionPage
+        <LecturePage
           currentUnit={currentUnit}
           currentSection={currentSection as LectureSection}
         />

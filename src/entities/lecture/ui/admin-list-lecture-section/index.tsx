@@ -5,18 +5,16 @@ import { useUserStore } from "@/src/entities/user/model/userStore";
 import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import { ROUTES } from "@/src/shared/lib/constants/routes";
 import { Button } from "@/src/shared/ui/button/button";
-import { SectionContainer } from "@/src/widgets/section-container";
 import { useParams, useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { HeaderLectureSection } from "../header-lecture-section";
+import React, { useEffect, useState } from "react";
 
-export interface ListLectureSectionProps {
+export interface AdminListLectureSectionProps {
   currentSection: LectureSection;
   currentUnit: IEntriesLecture;
 }
-export const ListLectureSection = ({
+export const AdminListLectureSection = ({
   currentUnit,
-}: ListLectureSectionProps) => {
+}: AdminListLectureSectionProps) => {
   const [currentLectureSectionIndex, setCurrentLectureSectionIndex] =
     useState<number>(0);
   const params = useParams<{ id: string; "entries-id": string }>();
@@ -34,35 +32,52 @@ export const ListLectureSection = ({
     if (currentLectureSectionIndex <= 0) return;
     setCurrentLectureSectionIndex((state) => state - 1);
   };
+  const handlerNavToChange = (sectionId: string) => {
+    router.push(
+      ROUTES.changeLectureSection(
+        params?.id ?? "",
+        params?.["entries-id"] ?? "",
+        sectionId,
+      ),
+    );
+  };
 
   return (
     <div className="w-[100%] h-[100%] flex justify-center items-center flex-col">
-      <HeaderLectureSection
-        name={currentUnit?.lecture?.name}
-        lectureLength={currentUnit?.lecture?.sections.length}
-        currentLectureSectionIndex={currentLectureSectionIndex + 1}
-        sectionTitle={
-          currentUnit?.lecture?.sections[currentLectureSectionIndex].task
-        }
-      />
-      <SectionContainer>
+      <div className="w-[90%] max-w-[1200px] flex justify-between">
+        <div>
+          <h1 className="">{currentUnit?.lecture?.name}</h1>
+          <p>
+            {currentLectureSectionIndex + 1}/
+            {currentUnit?.lecture?.sections.length}
+          </p>
+        </div>
+        {user?.has_admin_rights && (
+          <Button
+            handlerEvent={() =>
+              handlerNavToChange(
+                currentUnit?.lecture?.sections[currentLectureSectionIndex].id ??
+                  "",
+              )
+            }
+            label="Змінити"
+          />
+        )}
+      </div>
+      <div className="w-[70vw] h-[45vh] bg-questPurple flex justify-center items-center rounded-[10px]">
         <ItemLectureSection
           lectureSection={
             currentUnit?.lecture?.sections[currentLectureSectionIndex]
           }
         />
-      </SectionContainer>
-      <div className="w-[90%] h-[100px] max-w-[1200px] flex items-center justify-between">
+      </div>
+      <div className="w-[70vw] h-[60px] max-w-[1200px] flex items-center justify-between">
         <Button
-          style="!h-[40px] w-[250px]"
+          style="h-[40px]"
           handlerEvent={handlerPreviousLectureSection}
           label="Назад"
         />
-        <Button
-          style="!h-[40px] w-[250px]"
-          handlerEvent={handlerNextLectureSection}
-          label="Впeред"
-        />
+        <Button handlerEvent={handlerNextLectureSection} label="Впeред" />
       </div>
     </div>
   );

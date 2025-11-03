@@ -1,19 +1,18 @@
 import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import Image from "next/image";
 import React from "react";
-import { LectureTemplate } from "../lecture-template";
 
-export interface ItemLectureSectionProps {
+export interface AdminItemLectureSectionProps {
   lectureSection?: LectureSection;
 }
-export const ItemLectureSection = ({
+export const AdminItemLectureSection = ({
   lectureSection,
-}: ItemLectureSectionProps) => {
+}: AdminItemLectureSectionProps) => {
   return (
     <div
-      className="
-      w-[100%] flex justify-center relative 
-      flex-row
+      className="                                                                    
+      w-[100%] flex justify-center relative                                          
+      flex-row                                                                       
       items-center h-[100%]"
     >
       <div className="w-[140px] mt-[50px] h-[100%] flex justify-center">
@@ -23,7 +22,7 @@ export const ItemLectureSection = ({
             alt="preview"
             width={100}
             height={100}
-            className="rounded-[50%] 
+            className="rounded-[50%]                                                 
           w-[100px] h-[100px] object-cover bg-white cursor-pointer"
           />
         )}
