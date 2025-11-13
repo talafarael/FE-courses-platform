@@ -1,7 +1,7 @@
 import { LectureSection } from "@/src/features/lecture/model/lecture-section.model";
 import { ITest } from "../../test/model/test";
 
-export type IEntries = IEntriesTest | IEntriesLecture
+export type IEntries = IEntriesTest | IEntriesLecture;
 //   {
 //   course_id: string;
 //   name: string;
@@ -29,7 +29,7 @@ export interface IEntriesTest {
   test: {
     id: string;
     name: string;
-    sections: ITest[];
+    sections: ITest[]; //test
   };
 }
 

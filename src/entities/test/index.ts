@@ -1,1 +1,1 @@
-export { AdminListTestSection } from "./ui/admin-list-test-section";
+export { AdminTestSection } from "./ui/admin-test-section";
