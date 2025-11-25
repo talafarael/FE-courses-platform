@@ -1,5 +1,9 @@
 import axios, { AxiosResponse } from "axios";
-const API_PORT = `${process.env.NEXT_PUBLIC_BE_URL}/api/`;
+
+const HOST =
+  process.env.NEXT_PUBLIC_BE_URL ?? "https://plcoursestestapi.esp.ovh";
+
+const API_PORT = `${HOST}/api/`;
 
 export const createApi = () => {
   const token = localStorage.getItem("token");

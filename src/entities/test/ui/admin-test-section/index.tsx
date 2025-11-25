@@ -13,7 +13,7 @@ export const AdminTestSection = ({
   return (
     <div>
       <HeaderTest title={currentTest.name} />
-      <AdminListTest />
+      <AdminListTest test={currentUnit.test.sections} />
     </div>
   );
 };
