@@ -6,10 +6,11 @@ export interface AdminListTestProps {
 }
 
 export const AdminListTest = ({ tests }: AdminListTestProps) => {
+  console.log(tests);
   return (
-    <div>
-      {tests.map((test) => (
-        <AdminItemTestSection />
+    <div className="w-full flex flex-col jsutify-center items-center gap-[20px] ">
+      {tests?.map((test) => (
+        <AdminItemTestSection key={test.id} test={test} />
       ))}
     </div>
   );

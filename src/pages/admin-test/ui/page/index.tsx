@@ -8,7 +8,7 @@ export interface AdminTestPageProps {
 }
 export const AdminTestPage = ({ currentUnit }: AdminTestPageProps) => {
   return (
-    <LectureTemplate style="!min-h-[70vh] p-[20px] !w-[100%] relative ">
+    <LectureTemplate style="!min-h-[70vh] p-[20px] !w-[100%] relative !h-[auto]">
       <BorderedContainer style="!m-0">
         <AdminTestSection currentUnit={currentUnit} />
       </BorderedContainer>

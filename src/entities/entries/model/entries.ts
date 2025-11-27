@@ -29,7 +29,7 @@ export interface IEntriesTest {
   test: {
     id: string;
     name: string;
-    sections: ITest[]; //test
+    questions: ITest[]; //test
   };
 }
 

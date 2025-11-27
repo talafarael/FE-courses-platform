@@ -11,9 +11,9 @@ export const AdminTestSection = ({
   const currentTest = currentUnit.test;
   console.log(currentTest);
   return (
-    <div>
+    <div className="h-200vh">
       <HeaderTest title={currentTest.name} />
-      <AdminListTest test={currentUnit.test.sections} />
+      <AdminListTest tests={currentTest.questions} />
     </div>
   );
 };
