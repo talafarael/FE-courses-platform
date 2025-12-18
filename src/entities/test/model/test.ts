@@ -21,10 +21,25 @@ interface FormQuestion {
   answers: FormQuestionAnswers;
 }
 
-export interface ITest {
-  id?: string
+export type ITest = ITestSelect | ITestForm;
+//   {
+//   id?: string;
+//   test_id: string;
+//   order: number;
+//   select_question?: SelectQuestion;
+//   form_question?: FormQuestion;
+// }
+export interface ITestSelect {
+  id?: string;
   test_id: string;
   order: number;
   select_question: SelectQuestion;
-  form_question: FormQuestion;
+  form_question?: null;
+}
+export interface ITestForm {
+  id?: string;
+  test_id: string;
+  order: number;
+  select_question: null;
+  form_question?: FormQuestion;
 }

@@ -1,5 +1,5 @@
-import { TestPage } from "@/src/pages/test/ui/page";
+import { AdminSectionPage } from "@/src/pages/admin-section/ui";
 
 export default function Home() {
-  // return <TestPage />;
+  return <AdminSectionPage />;
 }

@@ -1,6 +1,6 @@
 import { IEntriesTest } from "@/src/entities/entries/model/entries";
 import { HeaderTest } from "../header-test";
-import { AdminListTest } from "../admin-list-test";
+import { AdminListTest } from "@/src/widgets/admin-list-test";
 
 export interface AdminListTestSectionProps {
   currentUnit: IEntriesTest;

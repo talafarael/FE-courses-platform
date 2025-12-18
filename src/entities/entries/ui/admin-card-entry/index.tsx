@@ -21,13 +21,12 @@ export const AdminCardEntry = ({
   const params = useParams<{ id: string }>();
   const handlerNavWatch = () => {
     const id = params?.id;
-    router.push(
-      ROUTES.watchAdminLectureSection(
-        id ?? "",
-        entry.id,
-        entry.lecture?.sections[0].id,
-      ),
+    const path = ROUTES.watchAdminLectureSection(
+      id ?? "",
+      entry.id,
+      entry.lecture?.sections[0].id ?? "",
     );
+    router.push(path);
   };
   const handlerNavToFactoryTest = () => {
     const id = params?.id;
