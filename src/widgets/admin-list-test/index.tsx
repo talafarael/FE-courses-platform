@@ -1,6 +1,7 @@
 import { ITest } from "@/src/entities/test/model/test";
 import { AdminItemFormTest } from "@/src/entities/test/ui/admin-item-form-test";
 import { AdminItemSelectTest } from "@/src/entities/test/ui/admin-item-select-test";
+import { SelectAnswerCreate } from "@/src/features/select-answer";
 
 export interface AdminListTestProps {
   tests: ITest[];
@@ -15,11 +16,14 @@ export const AdminListTest = ({ tests }: AdminListTestProps) => {
           return <AdminItemFormTest key={test.id} test={test} />;
         }
         if (test.select_question) {
-          return <AdminItemSelectTest key={test.id} test={test} />;
+          return (
+            <AdminItemSelectTest key={test.id} test={test}>
+              <SelectAnswerCreate />
+            </AdminItemSelectTest>
+          );
         }
         return null;
       })}
     </div>
   );
 };
-

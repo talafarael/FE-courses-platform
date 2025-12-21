@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import { ReactElement } from "react";
 
 export interface ModalWindowProps {
-  children: ReactNode;
+  children: ReactElement;
   handlerClose: () => void;
 }
 export const ModalWindow = ({ children, handlerClose }: ModalWindowProps) => {

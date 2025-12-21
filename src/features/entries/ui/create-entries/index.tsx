@@ -32,16 +32,13 @@ export const CreateEntries = ({ unit_id, order }: CreateEntriesProps) => {
     <div className="w-auto">
       {!isOpen && <Button label="Додати інпут" handlerEvent={toggle} />}
       {isOpen && (
-        <ModalWindow
-          children={
-            <FromEntries
-              handlerSend={handlerSend}
-              error={error}
-              loading={loading}
-            />
-          }
-          handlerClose={close}
-        />
+        <ModalWindow handlerClose={close}>
+          <FromEntries
+            handlerSend={handlerSend}
+            error={error}
+            loading={loading}
+          />
+        </ModalWindow>
       )}
     </div>
     // </ModalContext>
