@@ -3,6 +3,7 @@ import { AdminItemFormTest } from "@/src/entities/test/ui/admin-item-form-test";
 import { AdminItemSelectTest } from "@/src/entities/test/ui/admin-item-select-test";
 import { SelectAnswerCreate } from "@/src/features/select-answer";
 import { AdminSelectAnswerList } from "../admin-answer-select-list";
+import { CreateTestModal } from "@/src/features/test/ui/create-test-modal";
 
 export interface AdminListTestProps {
   tests: ITest[];
@@ -33,6 +34,7 @@ export const AdminListTest = ({ tests }: AdminListTestProps) => {
         }
         return null;
       })}
+      <CreateTestModal order={0} />
     </div>
   );
 };

@@ -12,7 +12,7 @@ export interface SelectAnswerCreateProps {
 
 export const SelectAnswerCreate = ({ test }: SelectAnswerCreateProps) => {
   const { handlerSubmit, error, loading } = useApi();
-  console.log(test.select_question.answers);
+
   const handler = (data: ISelectAnswerForm) => {
     handlerSubmit(() =>
       CreateSelectAnswer(

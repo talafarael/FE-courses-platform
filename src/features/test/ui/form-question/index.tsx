@@ -10,16 +10,20 @@ import { FactoryInputQuestion } from "../factory-input-question";
 import { Button } from "@/src/shared/ui/button/button";
 import { FactoryInputSelect } from "../factory-select";
 import { InputForm } from "@/src/shared/ui/input-form";
+import { ReactElement } from "react";
 
 interface FactoryQuestionProps {
   question?: ICraeteQuestionForm;
   handlerSubmit: (data: ICreateQuestionForm) => void;
   onLoading: boolean;
   error?: string;
+  childrenCancelButton?: ReactElement;
 }
+
 export const FormQuestion = ({
   question,
   handlerSubmit,
+  childrenCancelButton,
 }: FactoryQuestionProps) => {
   const form = useForm<ICreateQuestionForm>({
     resolver: zodResolver(FormQuestionSchema),
@@ -67,7 +71,10 @@ export const FormQuestion = ({
             />
           </div>
         )}
-        <Button type="submit" label="Створити" />
+        <div>
+          {childrenCancelButton}
+          <Button type="submit" label="Створити" />
+        </div>
       </form>
     </FormProvider>
   );

@@ -2,7 +2,7 @@
 interface ButtonProps {
   label: string;
   type?: "button" | "submit" | "reset";
-  handlerEvent?: () => void;
+  handlerEvent?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   disable?: boolean;
   style?: string;
 }
