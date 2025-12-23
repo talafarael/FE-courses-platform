@@ -7,5 +7,5 @@ export const CreateSelectAnswer = async (
   path: string,
 ): Promise<AxiosResponse> => {
   const axios = createApi();
-  return await axios.put(path, data);
+  return await axios.post(path, data);
 };

@@ -1,3 +1,5 @@
+import { ISelectAnswer } from "../../select-answer/model/select-answer";
+
 interface QuestionImages {
   additionalProp1: string;
   additionalProp2: string;
@@ -11,8 +13,10 @@ interface FormQuestionAnswers {
 }
 
 interface SelectQuestion {
+  id?: string;
   question_text: string;
   question_images: QuestionImages;
+  answers: ISelectAnswer[];
 }
 
 interface FormQuestion {
@@ -35,6 +39,7 @@ export interface ITestSelect {
   order: number;
   select_question: SelectQuestion;
   form_question?: null;
+  answers: FormQuestionAnswers;
 }
 export interface ITestForm {
   id?: string;

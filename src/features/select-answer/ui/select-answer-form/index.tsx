@@ -4,11 +4,12 @@ import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SelectAnswerInputs } from "../select-answer-inputs";
 import { Button } from "@/src/shared/ui/button/button";
+import { useModal } from "@/src/shared/hook/use-modal";
 
 export interface SelectAnswerFormProps {
   defValue?: ISelectAnswerForm;
   handlerSubmit: (data: ISelectAnswerForm) => void;
-  error?: string;
+  error?: string | null;
   loading: boolean;
 }
 
@@ -16,6 +17,7 @@ export const SelectAnswerForm = ({
   defValue,
   handlerSubmit,
 }: SelectAnswerFormProps) => {
+  const { close } = useModal();
   const form = useForm<ISelectAnswerForm>({
     resolver: zodResolver(SelectAnswerSchema),
     defaultValues: defValue,
@@ -32,7 +34,10 @@ export const SelectAnswerForm = ({
           errors={form.formState.errors}
           register={form.register}
         />
-        <Button type="submit" label="Create" />
+        <div className="">
+          {!!close && <Button label="Cancel" />}
+          <Button type="submit" label="Create" />
+        </div>
       </form>
     </FormProvider>
   );
